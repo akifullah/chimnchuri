@@ -1,10 +1,10 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <form id="categoryForm">
+    <form id="addonCategoryForm">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Category Information</h4>
+                <h4 class="card-title">Addon Category Information</h4>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -23,20 +23,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Optional: Parent Category -->
-                <!--
-                    <div class="row">
-                         <div class="col-lg-12">
-                            <div class="mb-3">
-                                <label for="parent_id" class="form-label">Parent Category</label>
-                                 <select class="form-control" name="parent_id">
-                                    <option value="">None</option>
-                                     ...
-                                 </select>
-                            </div>
-                         </div>
-                    </div>
-                    -->
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="mb-3">
@@ -63,14 +49,14 @@
     <script>
         $(document).ready(function() {
 
-            $('#categoryForm').on('submit', function(e) {
+            $('#addonCategoryForm').on('submit', function(e) {
                 e.preventDefault();
 
                 let form = this;
                 let formData = new FormData(form);
 
                 $.ajax({
-                    url: "{{ route('category.store') }}",
+                    url: "{{ route('addon-categories.store') }}",
                     type: "POST",
                     data: formData,
                     processData: false,
@@ -80,11 +66,11 @@
                     },
                     beforeSend: function() {
                         // Clear previous errors
-                        $('#categoryForm .is-invalid').removeClass('is-invalid');
-                        $('#categoryForm .invalid-feedback').remove();
+                        $('#addonCategoryForm .is-invalid').removeClass('is-invalid');
+                        $('#addonCategoryForm .invalid-feedback').remove();
                     },
                     success: function(response) {
-                        window.location.href = "{{ route('category.index') }}";
+                        window.location.href = "{{ route('admin.addon-categories.index') }}";
                     },
                     error: function(xhr) {
                         if (xhr.status === 422) {

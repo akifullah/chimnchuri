@@ -462,11 +462,32 @@
                                 <li class="sub-nav-item">
                                     <a class="sub-nav-link" href="{{ route('category.index') }}">List</a>
                                 </li>
-                                <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="">Edit</a>
-                                </li>
+
                                 <li class="sub-nav-item">
                                     <a class="sub-nav-link" href="{{ route('category.create') }}">Create</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link menu-arrow" href="#sidebarAddonCategory" data-bs-toggle="collapse"
+                            role="button" aria-expanded="false" aria-controls="sidebarAddonCategory">
+                            <span class="nav-icon">
+                                <iconify-icon icon="solar:clipboard-list-bold-duotone"></iconify-icon>
+                            </span>
+                            <span class="nav-text"> Addon Category </span>
+                        </a>
+                        <div class="collapse" id="sidebarAddonCategory">
+                            <ul class="nav sub-navbar-nav">
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link"
+                                        href="{{ route('admin.addon-categories.index') }}">List</a>
+                                </li>
+
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link"
+                                        href="{{ route('admin.addon-categories.create') }}">Create</a>
                                 </li>
                             </ul>
                         </div>

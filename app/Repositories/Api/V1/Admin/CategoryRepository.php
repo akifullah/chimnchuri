@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Respositories\Api\V1\Admin;
+namespace App\Repositories\Api\V1\Admin;
 
 use App\Models\Category;
 
@@ -9,10 +9,7 @@ class CategoryRepository
     /**
      * Create a new class instance.
      */
-    public function __construct()
-    {
-
-    }
+    public function __construct() {}
 
     // GET ALL CATEGORIES
     public function categoriesWithChildren()

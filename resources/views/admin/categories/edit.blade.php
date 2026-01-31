@@ -1,133 +1,102 @@
-@extends("admin.layouts.app")
+@extends('admin.layouts.app')
 
-
-@section("content")
-
-    <div class="row">
-        <div class="col-xl-12 ">
-
-            <h1>Edit Category</h1>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Add Thumbnail Photo</h4>
-                </div>
-                <div class="card-body">
-                    <!-- File Upload -->
-                    <form action="https://techzaa.in/" method="post" class="dropzone" id="myAwesomeDropzone"
-                        data-plugin="dropzone" data-previews-container="#file-previews"
-                        data-upload-preview-template="#uploadPreviewTemplate">
-                        <div class="fallback">
-                            <input name="file" type="file" multiple />
-                        </div>
-                        <div class="dz-message needsclick">
-                            <i class="bx bx-cloud-upload fs-48 text-primary"></i>
-                            <h3 class="mt-4">Drop your images here, or <span class="text-primary">click to browse</span>
-                            </h3>
-                            <span class="text-muted fs-13">
-                                1600 x 1200 (4:3) recommended. PNG, JPG and GIF files are allowed
-                            </span>
-                        </div>
-                    </form>
-                </div>
+@section('content')
+    <form id="categoryForm">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Edit Category Information</h4>
             </div>
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">General Information</h4>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="category-title" class="form-label">Category Title</label>
-                                    <input type="text" id="category-title" class="form-control" placeholder="Enter Title">
-                                </div>
-                            </form>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Category Name</label>
+                            <input type="text" id="name" name="name" class="form-control"
+                                placeholder="Category Name" value="{{ $category->name }}" required>
                         </div>
-
-                        <div class="col-lg-6">
-                            <form>
-                                <label for="crater" class="form-label">Created By</label>
-                                <select class="form-control" id="crater" data-choices data-choices-groups
-                                    data-placeholder="Select Crater">
-                                    <option value="">Select Crater</option>
-                                    <option value="Seller">Seller</option>
-                                    <option value="Admin">Admin</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </form>
-                        </div>
-                        <div class="col-lg-6">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="product-stock" class="form-label">Stock</label>
-                                    <input type="number" id="product-stock" class="form-control" placeholder="Quantity">
-                                </div>
-
-                            </form>
-                        </div>
-                        <div class="col-lg-6">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="product-id" class="form-label">Tag ID</label>
-                                    <input type="number" id="product-id" class="form-control" placeholder="#******">
-                                </div>
-
-                            </form>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="mb-0">
-                                <label for="description" class="form-label">Description</label>
-                                <textarea class="form-control bg-light-subtle" id="description" rows="7"
-                                    placeholder="Type description"></textarea>
-                            </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label for="slug" class="form-label">Category Slug</label>
+                            <input type="text" id="slug" name="slug" class="form-control"
+                                placeholder="Category Slug" value="{{ $category->slug }}">
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Meta Options</h4>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="meta-title" class="form-label">Meta Title</label>
-                                    <input type="text" id="meta-title" class="form-control" placeholder="Enter Title">
-                                </div>
-                            </form>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control bg-light-subtle" id="description" rows="5" placeholder="Category Description"
+                                name="description">{{ $category->description }}</textarea>
                         </div>
-                        <div class="col-lg-6">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="meta-tag" class="form-label">Meta Tag Keyword</label>
-                                    <input type="text" id="meta-tag" class="form-control" placeholder="Enter word">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="mb-0">
-                                <label for="description" class="form-label">Description</label>
-                                <textarea class="form-control bg-light-subtle" id="description" rows="4"
-                                    placeholder="Type description"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="p-3 bg-light mb-3 rounded">
-                <div class="row justify-content-end g-2">
-                    <div class="col-lg-2">
-                        <a href="#!" class="btn btn-outline-secondary w-100">Save Change</a>
-                    </div>
-                    <div class="col-lg-2">
-                        <a href="#!" class="btn btn-primary w-100">Cancel</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="p-3 bg-light mb-3 rounded">
+            <div class="row justify-content-end g-2">
+                <div class="col-lg-2">
+                    <button type="submit" class="btn btn-outline-secondary w-100">Update Category</button>
+                </div>
+            </div>
+        </div>
+    </form>
+@endsection
+
+
+@section('javascript')
+    <script>
+        $(document).ready(function() {
+
+            $('#categoryForm').on('submit', function(e) {
+                e.preventDefault();
+
+                let form = this;
+                let formData = new FormData(form);
+                formData.append('_method', 'PUT');
+
+                $.ajax({
+                    url: "{{ route('category.update', $category->id) }}",
+                    type: "POST",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    beforeSend: function() {
+                        // Clear previous errors
+                        $('#categoryForm .is-invalid').removeClass('is-invalid');
+                        $('#categoryForm .invalid-feedback').remove();
+                    },
+                    success: function(response) {
+                        window.location.href = "{{ route('category.index') }}";
+                    },
+                    error: function(xhr) {
+                        if (xhr.status === 422) {
+                            let errors = xhr.responseJSON.errors;
+                            $.each(errors, function(key, value) {
+                                let input = $(`[name="${key}"]`);
+                                if (input.length > 0) {
+                                    input.addClass('is-invalid');
+                                    if (input.next('.invalid-feedback').length === 0) {
+                                        input.after(
+                                            `<div class="invalid-feedback">${value[0]}</div>`
+                                        );
+                                    } else {
+                                        input.next('.invalid-feedback').text(value[0]);
+                                    }
+                                }
+                            });
+                        } else {
+                            alert("Something went wrong. Check server logs.");
+                        }
+                    }
+                });
+
+            });
+
+        });
+    </script>
 @endsection

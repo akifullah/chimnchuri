@@ -3,7 +3,9 @@
 namespace App\Services\Api\V1\Admin;
 
 use App\Models\Category;
-use App\Respositories\Api\V1\Admin\CategoryRepository;
+
+use App\Repositories\Api\V1\Admin\CategoryRepository;
+use Illuminate\Support\Str;
 
 class CategoryService
 {
@@ -22,6 +24,7 @@ class CategoryService
     // CREATE CATEGORIES
     public function create(array $data)
     {
+        $data['uuid'] = Str::uuid()->toString();
         return $this->repo->create($data);
     }
 

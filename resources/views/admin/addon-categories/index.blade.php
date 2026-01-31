@@ -3,11 +3,26 @@
 @section('content')
     <div class="row">
         <div class="col-xl-12">
+
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center gap-1">
-                    <h4 class="card-title flex-grow-1">All Categories List</h4>
+                    <h4 class="card-title flex-grow-1">All Addon Categories List</h4>
 
-                    <a href="{{ route('category.create') }}" class="btn btn-sm btn-primary">
+                    <a href="{{ route('admin.addon-categories.create') }}" class="btn btn-sm btn-primary">
                         Add Category
                     </a>
                 </div>
@@ -52,11 +67,12 @@
                                         </td>
                                         <td>
                                             <div class="d-flex gap-2">
-                                                <a href="{{ route('category.edit', $category->id) }}"
+                                                <a href="{{ route('admin.addon-categories.edit', $category->id) }}"
                                                     class="btn btn-soft-primary btn-sm"><iconify-icon
                                                         icon="solar:pen-2-broken"
                                                         class="align-middle fs-18"></iconify-icon></a>
-                                                <form action="{{ route('category.destroy', $category->id) }}" method="POST"
+                                                <form action="{{ route('admin.addon-categories.destroy', $category->id) }}"
+                                                    method="POST"
                                                     onsubmit="return confirm('Are you sure you want to delete this category?');">
                                                     @csrf
                                                     @method('DELETE')

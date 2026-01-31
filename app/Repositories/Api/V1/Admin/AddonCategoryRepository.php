@@ -46,7 +46,8 @@ class AddonCategoryRepository
             return false;
         }
 
-        return $addonCategory->update($data);
+        $addonCategory->update($data);
+        return $addonCategory;
     }
 
     // DELETE 
@@ -60,6 +61,4 @@ class AddonCategoryRepository
 
         return $addonCategory->delete();
     }
-
-
 }
