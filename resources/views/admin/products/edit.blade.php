@@ -30,7 +30,9 @@
                             <option value="">Choose a categories</option>
                             @if ($categories->isNotEmpty())
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    <option
+                                        {{ $product->categories_relation->contains('id', $category->id) ? 'selected' : '' }}
+                                        value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             @endif
                         </select>

@@ -2,6 +2,28 @@
 
 
 @section('content')
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Add Product Photo</h4>
+        </div>
+        <div class="card-body">
+            <!-- File Upload -->
+            <form action="" method="post" class="dropzone" id="productDropzone" data-plugin="dropzone"
+                data-previews-container="#file-previews" data-upload-preview-template="#uploadPreviewTemplate">
+                <div class="fallback">
+                    <input name="file" type="file" multiple />
+                </div>
+                <div class="dz-message needsclick">
+                    <i class="bx bx-cloud-upload fs-48 text-primary"></i>
+                    <h3 class="mt-4">Drop your images here, or <span class="text-primary">click to browse</span></h3>
+                    {{-- <span class="text-muted fs-13">
+                        1600 x 1200 (4:3) recommended. PNG, JPG and GIF files are allowed
+                    </span> --}}
+                </div>
+            </form>
+        </div>
+    </div>
+
     <form id="productForm">
         <div class="card">
             <div class="card-header">
@@ -25,7 +47,7 @@
                     </div>
                     <div class="col-lg-4">
                         <label for="product-categories" class="form-label">Product Categories</label>
-                        <select class="form-control" id="product-categories" data-choices data-choices-groups
+                        <select class="form-control multiple" id="product-categories" data-choices data-choices-groups
                             data-placeholder="Select Categories" name="category_id">
                             <option value="">Choose a categories</option>
                             @if ($categories->isNotEmpty())
@@ -83,27 +105,7 @@
             </div>
         </div>
     </form>
-    <div class="card">
-        <div class="card-header">
-            <h4 class="card-title">Add Product Photo</h4>
-        </div>
-        <div class="card-body">
-            <!-- File Upload -->
-            <form action="" method="post" class="dropzone" id="productDropzone" data-plugin="dropzone"
-                data-previews-container="#file-previews" data-upload-preview-template="#uploadPreviewTemplate">
-                <div class="fallback">
-                    <input name="file" type="file" multiple />
-                </div>
-                <div class="dz-message needsclick">
-                    <i class="bx bx-cloud-upload fs-48 text-primary"></i>
-                    <h3 class="mt-4">Drop your images here, or <span class="text-primary">click to browse</span></h3>
-                    <span class="text-muted fs-13">
-                        1600 x 1200 (4:3) recommended. PNG, JPG and GIF files are allowed
-                    </span>
-                </div>
-            </form>
-        </div>
-    </div>
+
 @endsection
 
 
@@ -323,5 +325,23 @@
                 if (w100Div) w100Div.parentElement.removeChild(w100Div);
             }
         });
+
+
+        // Slug generation logic
+        const nameInput = document.getElementById('name');
+        const slugInput = document.getElementById('slug');
+
+        if (nameInput && slugInput) {
+            nameInput.addEventListener('input', function() {
+                const slug = this.value
+                    .toLowerCase()
+                    .trim()
+                    .replace(/[^\w\s-]/g, '')
+                    .replace(/[\s_-]+/g, '-')
+                    .replace(/^-+|-+$/g, '');
+
+                slugInput.value = slug;
+            });
+        }
     </script>
 @endsection

@@ -17,7 +17,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = $this->itemService->getAllItems();
-        $data["products"] = $products->load("media");
+        $data["products"] = $products->load("media", "categories_relation");
         // return $data;
         return view("admin.products.index", $data);
     }
@@ -36,8 +36,9 @@ class ProductController extends Controller
      */
     public function store(ItemStoreRequest $request)
     {
-
         $products = $this->itemService->store($request->all());
+
+        session()->flash('success', 'Product created successfully.');
 
         return $products;
     }
@@ -56,9 +57,8 @@ class ProductController extends Controller
     public function edit(string $id)
     {
         $product = Item::with(["sizes", "media"])->find($id);
-        $data["product"] = $product;
+        $data["product"] = $product->load("categories_relation");
         $data["categories"] = Category::all();
-
         return view("admin.products.edit", $data);
     }
 
@@ -68,6 +68,7 @@ class ProductController extends Controller
     public function update(Request $request, string $id)
     {
         $products = $this->itemService->updateItem($id, $request->all());
+        session()->flash('success', 'Product updated successfully.');
         return $products;
     }
 
@@ -77,7 +78,7 @@ class ProductController extends Controller
     public function destroy(string $id)
     {
         $products = $this->itemService->deleteItem($id);
-
+        session()->flash('success', 'Product deleted successfully.');
         return redirect()->route('products.index');
     }
 }

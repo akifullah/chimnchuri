@@ -40,6 +40,13 @@ class Category extends Model
     }
 
 
+    public function items()
+    {
+        return $this->belongsToMany(Item::class, 'category_items')
+            ->where('is_active', true)
+            ->orderBy('sort_order');
+    }
+
     // SCOOPES
     public function scopeActive($query)
     {

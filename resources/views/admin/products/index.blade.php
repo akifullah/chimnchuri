@@ -3,6 +3,21 @@
 @section('content')
     <div class="row">
         <div class="col-xl-12">
+
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center gap-1">
                     <h4 class="card-title flex-grow-1">All Product List</h4>
@@ -43,7 +58,11 @@
                                         </td>
                                         <td>£ {{ $product?->sizes[0]->price ?? 'N/A' }}</td>
 
-                                        <td> Fashion</td>
+                                        <td>
+                                            @foreach ($product->categories_relation as $category)
+                                                {{ $category->name }}
+                                            @endforeach
+                                        </td>
 
                                         <td>
                                             <div class="d-flex gap-2">

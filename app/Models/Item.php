@@ -27,15 +27,26 @@ class Item extends Model implements HasMedia
         "sort_order",
     ];
 
+    public $timestamps = false;
 
     public function sizes()
     {
         return $this->hasMany(ItemSize::class);
     }
 
-    public function items()
+    public function categoryItems()
     {
         return $this->hasMany(CategoryItem::class);
+    }
+
+    public function categories()
+    {
+        return $this->hasMany(CategoryItem::class)->with("category");
+    }
+
+    public function categories_relation()
+    {
+        return $this->belongsToMany(Category::class, 'category_items');
     }
 
     public function addonGroups()
