@@ -21,12 +21,11 @@ class AddonGroupItem extends Model
 
     public function group()
     {
-        return $this->belongsTo(AddonGroup::class, 'item_addon_group_id');
+        return $this->belongsTo(AddonGroup::class, 'addon_group_id');
     }
 
     public function addonItem()
     {
         return $this->belongsTo(AddonItem::class);
     }
-
 }

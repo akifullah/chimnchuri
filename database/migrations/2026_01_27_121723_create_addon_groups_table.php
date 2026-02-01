@@ -20,8 +20,8 @@ return new class extends Migration {
 
             $table->enum("selection_type", ["single", "multiple"])->default("multiple");
 
-            $table->unsignedBigInteger("min_qty")->default(0);
-            $table->unsignedBigInteger("max_qty")->default(0);
+            $table->unsignedBigInteger("min_qty")->nullable();
+            $table->unsignedBigInteger("max_qty")->nullable();
 
             $table->boolean("is_required")->default(false);
             $table->boolean("is_active")->default(true);

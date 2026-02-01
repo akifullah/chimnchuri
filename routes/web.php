@@ -13,6 +13,10 @@ Route::get('/', function () {
 
 
 Route::resource("/products", ProductController::class);
+Route::get('/products/{product}/assign-addons', [ProductController::class, 'assignAddons'])
+    ->name('products.assign-addons');
+Route::post('/products/{product}/assign-addons', [ProductController::class, 'storeAssignedAddons'])
+    ->name('products.assign-addons.store');
 Route::post('/products/{product}/media', [ProductMediaController::class, 'store'])
     ->name('products.media.store');
 Route::delete('/products/media/{media}', [ProductMediaController::class, 'destroy'])

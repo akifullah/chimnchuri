@@ -27,9 +27,8 @@ class AddonGroup extends Model
         return $this->belongsTo(AddonCategory::class);
     }
 
-    public function addonItems()
+    public function items()
     {
         return $this->hasMany(AddonGroupItem::class);
     }
-
 }
