@@ -106,8 +106,9 @@
                     <input class="form-check-input item-checkbox" type="checkbox"
                         name="addon_groups[{groupIndex}][items][{itemId}][selected]" value="1"
                         id="item-{groupIndex}-{itemId}">
-                    <label class="form-check-label " for="item-{groupIndex}-{itemId}">
-                        {ItemName} | <span style="font-size: 12px;" class="text-success">(£ {price})</span>
+                    <label class="form-check-label d-flex align-items-center justify-content-between"
+                        for="item-{groupIndex}-{itemId}">
+                        {ItemName} <span style="font-size: 12px;" class="text-success">£{price}</span>
                     </label>
                 </div>
                 {{-- <div class="d-flex gap-2">
