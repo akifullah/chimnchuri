@@ -433,15 +433,6 @@
                                 <li class="sub-nav-item">
                                     <a class="sub-nav-link" href="{{ route('products.index') }}">List</a>
                                 </li>
-                                {{-- <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="product-grid.html">Grid</a>
-                                </li>
-                                <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="product-details.html">Details</a>
-                                </li> --}}
-                                {{-- <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="product-edit.html">Edit</a>
-                                </li> --}}
                                 <li class="sub-nav-item">
                                     <a class="sub-nav-link" href="{{ route('products.create') }}">Create</a>
                                 </li>
@@ -488,6 +479,27 @@
                                 <li class="sub-nav-item">
                                     <a class="sub-nav-link"
                                         href="{{ route('admin.addon-categories.create') }}">Create</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link menu-arrow" href="#sidebarAddonItems" data-bs-toggle="collapse"
+                            role="button" aria-expanded="false" aria-controls="sidebarAddonItems">
+                            <span class="nav-icon">
+                                <iconify-icon icon="solar:t-shirt-bold-duotone"></iconify-icon>
+                            </span>
+                            <span class="nav-text"> Addon Items </span>
+                        </a>
+                        <div class="collapse" id="sidebarAddonItems">
+                            <ul class="nav sub-navbar-nav">
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link" href="{{ route('admin.addon-items.index') }}">List</a>
+                                </li>
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link" href="{{ route('admin.addon-items.create') }}">Create</a>
                                 </li>
                             </ul>
                         </div>

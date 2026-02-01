@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AddonItemController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Addon\CategoryController as AddonCategoryController;
 use App\Http\Controllers\Admin\Product\ProductController;
@@ -18,3 +19,5 @@ Route::delete('/products/media/{media}', [ProductMediaController::class, 'destro
     ->name('products.media.destroy');
 Route::resource("/category", CategoryController::class);
 Route::resource("/addon-categories", AddonCategoryController::class)->names("admin.addon-categories");
+
+Route::resource("/addon-items", AddonItemController::class)->names("admin.addon-items");
