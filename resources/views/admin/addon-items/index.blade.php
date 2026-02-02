@@ -88,7 +88,9 @@
                     </div>
                 </div>
                 <div class="card-footer border-top">
-                    <!-- Pagination could go here -->
+                    <nav aria-label="Page navigation example">
+                        {{ $addonItems->links() }}
+                    </nav>
                 </div>
             </div>
         </div>

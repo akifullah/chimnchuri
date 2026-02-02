@@ -18,7 +18,7 @@ class AddonItemRepository
 
     public function getAll()
     {
-        return AddonItem::get();
+        return AddonItem::paginate(15);
     }
 
 
@@ -61,6 +61,4 @@ class AddonItemRepository
 
         return $addonItem->delete();
     }
-
-
 }

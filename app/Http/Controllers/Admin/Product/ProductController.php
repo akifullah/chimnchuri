@@ -22,9 +22,9 @@ class ProductController extends Controller
     public function index()
     {
         $products = $this->itemService->getAllItems();
-        $data["products"] = $products->load("media", "categories_relation");
-        // return $data;
-        return view("admin.products.index", $data);
+
+        $products->load("media", "categories_relation");
+        return view("admin.products.index", get_defined_vars());
     }
 
     /**

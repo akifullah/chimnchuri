@@ -18,7 +18,7 @@ class ItemRepository
 
     public function getAllItems()
     {
-        $items = Item::orderBy("id", "desc")->get();
+        $items = Item::orderBy("id", "desc")->paginate(15);
         return $items;
     }
 

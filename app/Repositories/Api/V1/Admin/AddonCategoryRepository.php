@@ -17,7 +17,7 @@ class AddonCategoryRepository
     // GET ALL ADDON CATEGORIES
     public function getAll()
     {
-        return AddonCategory::get();
+        return AddonCategory::paginate(15);
     }
 
     // GET BY ID 

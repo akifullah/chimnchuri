@@ -24,6 +24,7 @@ class ItemService
     public function getAllItems()
     {
         $items = $this->itemRepository->getAllItems();
+
         return $items;
     }
 

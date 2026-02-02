@@ -86,7 +86,9 @@
                     </div>
                 </div>
                 <div class="card-footer border-top">
-                    <!-- Pagination could go here -->
+                    <nav aria-label="Page navigation example">
+                        {{ $categories->links() }}
+                    </nav>
                 </div>
             </div>
         </div>

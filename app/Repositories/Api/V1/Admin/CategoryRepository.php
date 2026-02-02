@@ -14,7 +14,7 @@ class CategoryRepository
     // GET ALL CATEGORIES
     public function categoriesWithChildren()
     {
-        return Category::get();
+        return Category::paginate(15);
     }
 
     // CREATE CATEGORY
