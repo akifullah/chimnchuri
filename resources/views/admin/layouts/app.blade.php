@@ -388,14 +388,13 @@
         <!-- ========== App Menu Start ========== -->
         <div class="main-nav">
             <!-- Sidebar Logo -->
-            <div class="logo-box ">
-                <a href="{{ route('admin.dashboard') }}" style="height: 100px;">
-                    <img src="{{ asset('admin/assets/images/logo-sm.png') }}" class="logo-sm" alt="logo sm">
-                    <img src="{{ asset('admin/assets/images/logo-light.png') }}" class="logo-lg" alt="logo light">
+            <div class="logo-box text-center">
+                <a href="{{ route('admin.dashboard') }}" style="height: 100px; display: inline-block;">
+                    <img src="{{ asset('admin/assets/images/logo.png') }}" height="100%" alt="Chimnchuri">
                 </a>
             </div>
 
-            <!-- Menu Toggle Button (sm-hover) -->
+            <!-- Menu Toggle Button (sm-hover)-->
             <button type="button" class="button-sm-hover" aria-label="Show Full Sidebar">
                 <iconify-icon icon="solar:double-alt-arrow-right-bold-duotone"
                     class="button-sm-hover-icon"></iconify-icon>

@@ -1,6 +1,4 @@
 /*
-Template Name: Larkon - Responsive 5 Admin Dashboard
-Author: Techzaa
 File: chat js
 */
 
@@ -12,7 +10,7 @@ class Chat {
             pagination: '.swiper-pagination',
             paginationClickable: true,
             slidesPerView: 'auto',
-            spaceBetween : 8,
+            spaceBetween: 8,
             autoHeight: true,
         });
     }

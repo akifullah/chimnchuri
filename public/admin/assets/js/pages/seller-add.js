@@ -1,7 +1,5 @@
 /*
-Template Name: Larkon - Responsive 5 Admin Dashboard
-Author: Techzaa
-File: dashboard - ecommerce js
+Module/App: Seller Add
 */
 
 

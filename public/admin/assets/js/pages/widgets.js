@@ -1,6 +1,4 @@
 /**
- * Theme: Larkon - Responsive Bootstrap 5 Admin Dashboard
- * Author: Techzaa
  * Module/App: Dashboard
  */
 
@@ -85,15 +83,15 @@ chart.render();
 //
 var options = {
     series: [{
-            name: "Page Views",
-            type: "bar",
-            data: [34, 65, 46, 68, 49, 61, 42, 44, 78, 52, 63, 67],
-        },
-        {
-            name: "Clicks",
-            type: "area",
-            data: [8, 12, 7, 17, 21, 11, 5, 9, 7, 29, 12, 35],
-        },
+        name: "Page Views",
+        type: "bar",
+        data: [34, 65, 46, 68, 49, 61, 42, 44, 78, 52, 63, 67],
+    },
+    {
+        name: "Clicks",
+        type: "area",
+        data: [8, 12, 7, 17, 21, 11, 5, 9, 7, 29, 12, 35],
+    },
     ],
     chart: {
         height: 313,
@@ -109,7 +107,7 @@ var options = {
     },
     fill: {
         opacity: [1, 1],
-        type: ['solid','gradient'],
+        type: ['solid', 'gradient'],
         gradient: {
             type: "vertical",
             inverseColors: false,
@@ -199,21 +197,21 @@ var options = {
     tooltip: {
         shared: true,
         y: [{
-                formatter: function (y) {
-                    if (typeof y !== "undefined") {
-                        return y.toFixed(1) + "k";
-                    }
-                    return y;
-                },
+            formatter: function (y) {
+                if (typeof y !== "undefined") {
+                    return y.toFixed(1) + "k";
+                }
+                return y;
             },
-            {
-                formatter: function (y) {
-                    if (typeof y !== "undefined") {
-                        return  y.toFixed(1) + "k";
-                    }
-                    return y;
-                },
+        },
+        {
+            formatter: function (y) {
+                if (typeof y !== "undefined") {
+                    return y.toFixed(1) + "k";
+                }
+                return y;
             },
+        },
         ],
     },
 }
