@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\V1\Auth\RegisterController;
 use App\Http\Controllers\Api\V1\Auth\TokenController;
 use App\Http\Controllers\frontend\CategoryApiController;
 use App\Http\Controllers\frontend\ItemApiController;
+use App\Http\Controllers\frontend\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -58,6 +59,9 @@ Route::prefix("v1")->group(function () {
         // items
         Route::get("/items", [ItemApiController::class, "index"]);
         Route::get("/items/{id}", [ItemApiController::class, "show"]);
+
+        // orders
+        Route::post("/place-order", [OrderController::class, "placeOrder"])->name("orders.place");
     });
 });
 
