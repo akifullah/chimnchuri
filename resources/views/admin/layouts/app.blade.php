@@ -532,6 +532,15 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('payment-gateways.index') }}">
+                            <span class="nav-icon">
+                                <iconify-icon icon="solar:card-bold-duotone"></iconify-icon>
+                            </span>
+                            <span class="nav-text"> Payment Gateways </span>
+                        </a>
+                    </li>
+
 
                 </ul>
             </div>

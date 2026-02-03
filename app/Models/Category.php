@@ -53,7 +53,7 @@ class Category extends Model implements HasMedia
 
     public function items()
     {
-        return $this->belongsToMany(Item::class, 'category_items')
+        return $this->belongsToMany(Item::class, 'category_items')->with("sizes", "media")
             ->where('is_active', true)
             ->orderBy('sort_order');
     }

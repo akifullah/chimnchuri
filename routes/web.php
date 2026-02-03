@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.dashboard.index');
 })->name('admin.dashboard')->middleware('admin');
-
+// ADMIN 
 Route::prefix('admin')->group(function () {
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('admin.login');
     Route::post('login', [LoginController::class, 'login'])->name('admin.login.post');
@@ -49,6 +49,6 @@ Route::prefix('admin')->group(function () {
 
         Route::resource("/smtp", SmtpController::class)->names("admin.smtp");
 
-        Route::resource('/payment-gateways', PaymentGatewayController::class);
+        Route::resource('/payment-gateways', PaymentGatewayController::class)->names("payment-gateways");
     });
 });

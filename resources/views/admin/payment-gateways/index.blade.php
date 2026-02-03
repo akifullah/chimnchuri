@@ -37,7 +37,8 @@
 
                                         <td>
                                             <a href="{{ route('payment-gateways.edit', $gateway->id) }}"
-                                                class="btn btn-sm btn-info">Edit</a>
+                                                class="btn btn-soft-primary btn-sm"><iconify-icon icon="solar:pen-2-broken"
+                                                    class="align-middle fs-18"></iconify-icon></a>
 
                                             <form method="POST"
                                                 action="{{ route('payment-gateways.destroy', $gateway->id) }}"
@@ -46,7 +47,9 @@
                                                 @csrf
                                                 @method('DELETE')
 
-                                                <button class="btn btn-sm btn-danger">Delete</button>
+                                                <button class="btn btn-soft-danger btn-sm"><iconify-icon
+                                                        icon="solar:trash-bin-minimalistic-2-broken"
+                                                        class="align-middle fs-18"></iconify-icon></button>
                                             </form>
                                         </td>
                                     </tr>
