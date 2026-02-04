@@ -6,9 +6,11 @@ use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Addon\CategoryController as AddonCategoryController;
 use App\Http\Controllers\Admin\Category\CategoryMediaController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\OfferController;
 use App\Http\Controllers\Admin\PaymentGatewayController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\Product\ProductMediaController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SmtpController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VoucherController;
@@ -61,5 +63,16 @@ Route::prefix('admin')->group(function () {
 
         // VOUCHERS
         Route::resource('/vouchers', VoucherController::class)->names("vouchers");
+
+        // SETTINGS
+        Route::get("/general-settings", [SettingController::class, "index"])->name("admin.general-settings");
+        Route::post("/general-settings", [SettingController::class, "update"])->name("admin.general-settings.update");
+
+        // WORKING HOURS
+        Route::get("/working-hours", [SettingController::class, "workingHours"])->name("admin.working-hours");
+        Route::post("/working-hours", [SettingController::class, "updateWorkingHours"])->name("admin.working-hours.update");
+
+        // OFFERS
+        Route::resource("offers", OfferController::class);
     });
 });

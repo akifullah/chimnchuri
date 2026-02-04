@@ -7992,7 +7992,7 @@ fieldset:disabled .btn {
 }
 
 input::placeholder {
-  color: #8486a1 !important;
+  color: #afafaf !important;
 }
 
 .modal.show .modal-dialog {
