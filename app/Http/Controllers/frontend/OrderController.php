@@ -171,7 +171,7 @@ class OrderController extends Controller
         } catch (\Exception $e) {
 
             DB::rollBack();
-
+            logger()->error($e);
             return response()->json([
                 'status' => 'error',
                 'message' => $e->getMessage()

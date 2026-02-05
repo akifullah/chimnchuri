@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Addon\CategoryController as AddonCategoryController;
 use App\Http\Controllers\Admin\Category\CategoryMediaController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\OfferController;
 use App\Http\Controllers\Admin\PaymentGatewayController;
@@ -16,9 +17,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VoucherController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('admin.dashboard.index');
-})->name('admin.dashboard')->middleware('admin');
+Route::get('/', [DashboardController::class, "index"])->name('admin.dashboard')->middleware('admin');
 // ADMIN 
 Route::prefix('admin')->group(function () {
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('admin.login');

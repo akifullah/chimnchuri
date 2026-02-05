@@ -108,7 +108,7 @@ html[data-bs-theme=dark][data-topbar-color=light] {
   --bs-success-rgb: 34, 197, 94;
   --bs-warning-rgb: 249, 185, 49;
   --bs-info-rgb: 78, 202, 194;
-  --bs-danger-rgb: 57, 100, 48;
+  --bs-danger-rgb: 230, 10, 0;
   --bs-purple-rgb: 127, 86, 218;
   --bs-pink-rgb: 255, 134, 200;
   --bs-blue-rgb: 28, 132, 238;

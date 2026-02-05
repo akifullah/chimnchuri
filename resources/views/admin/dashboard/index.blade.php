@@ -22,18 +22,25 @@
                                 </div> <!-- end col -->
                                 <div class="col-6 text-end">
                                     <p class="text-muted mb-0 text-truncate">Total Orders</p>
-                                    <h3 class="text-dark mt-1 mb-0">13, 647</h3>
+                                    <h3 class="text-dark mt-1 mb-0">{{ $totalOrders }}</h3>
                                 </div> <!-- end col -->
                             </div> <!-- end row-->
                         </div> <!-- end card body -->
                         <div class="card-footer py-2 bg-light bg-opacity-50">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <span class="text-success"> <i class="bx bxs-up-arrow fs-12"></i>
-                                        2.3%</span>
-                                    <span class="text-muted ms-1 fs-12">Last Week</span>
+                                    @if ($orderWeekChange >= 0)
+                                        <span class="text-success"> <i class="bx bxs-up-arrow fs-12"></i>
+                                            {{ $orderWeekChange }}%</span>
+                                        <span class="text-muted ms-1 fs-12">Last Week</span>
+                                    @else
+                                        <span class="text-danger"> <i class="bx bxs-down-arrow fs-12"></i>
+                                            {{ abs($orderWeekChange) }}%</span>
+                                        <span class="text-muted ms-1 fs-12">Last Week</span>
+                                    @endif
                                 </div>
-                                <a href="#!" class="text-reset fw-semibold fs-12">View More</a>
+                                <a href="{{ route('admin.orders') }}" class="text-reset fw-semibold fs-12">View
+                                    More</a>
                             </div>
                         </div> <!-- end card body -->
                     </div> <!-- end card -->
@@ -48,8 +55,8 @@
                                     </div>
                                 </div> <!-- end col -->
                                 <div class="col-6 text-end">
-                                    <p class="text-muted mb-0 text-truncate">New Leads</p>
-                                    <h3 class="text-dark mt-1 mb-0">9, 526</h3>
+                                    <p class="text-muted mb-0 text-truncate">Today Orders</p>
+                                    <h3 class="text-dark mt-1 mb-0">{{ $totalOrders }}</h3>
                                 </div> <!-- end col -->
                             </div> <!-- end row-->
                         </div> <!-- end card body -->
@@ -75,17 +82,23 @@
                                     </div>
                                 </div> <!-- end col -->
                                 <div class="col-6 text-end">
-                                    <p class="text-muted mb-0 text-truncate">Deals</p>
-                                    <h3 class="text-dark mt-1 mb-0">976</h3>
+                                    <p class="text-muted mb-0 text-truncate">Pending Orders</p>
+                                    <h3 class="text-dark mt-1 mb-0">{{ $pendingOrders }}</h3>
                                 </div> <!-- end col -->
                             </div> <!-- end row-->
                         </div> <!-- end card body -->
                         <div class="card-footer py-2 bg-light bg-opacity-50">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <span class="text-danger"> <i class="bx bxs-down-arrow fs-12"></i>
-                                        0.3%</span>
-                                    <span class="text-muted ms-1 fs-12">Last Month</span>
+                                    @if ($pendingChange > 0)
+                                        <span class="text-success"> <i class="bx bxs-up-arrow fs-12"></i>
+                                            {{ $pendingChange }}%</span>
+                                        <span class="text-muted ms-1 fs-12">Last Month</span>
+                                    @else
+                                        <span class="text-danger"> <i class="bx bxs-down-arrow fs-12"></i>
+                                            {{ $pendingChange }}%</span>
+                                        <span class="text-muted ms-1 fs-12">Last Month</span>
+                                    @endif
                                 </div>
                                 <a href="#!" class="text-reset fw-semibold fs-12">View More</a>
                             </div>
@@ -102,17 +115,23 @@
                                     </div>
                                 </div> <!-- end col -->
                                 <div class="col-6 text-end">
-                                    <p class="text-muted mb-0 text-truncate">Booked Revenue</p>
-                                    <h3 class="text-dark mt-1 mb-0">$123.6k</h3>
+                                    <p class="text-muted mb-0 text-truncate">Total Revenue</p>
+                                    <h3 class="text-dark mt-1 mb-0"> £ {{ $totalRevenue }}</h3>
                                 </div> <!-- end col -->
                             </div> <!-- end row-->
                         </div> <!-- end card body -->
                         <div class="card-footer py-2 bg-light bg-opacity-50">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <span class="text-danger"> <i class="bx bxs-down-arrow fs-12"></i>
-                                        10.6%</span>
-                                    <span class="text-muted ms-1 fs-12">Last Month</span>
+                                    @if ($revenueChange >= 0)
+                                        <span class="text-success"> <i class="bx bxs-up-arrow fs-12"></i>
+                                            {{ $revenueChange }}%</span>
+                                        <span class="text-muted ms-1 fs-12">Last Month</span>
+                                    @else
+                                        <span class="text-danger"> <i class="bx bxs-down-arrow fs-12"></i>
+                                            {{ abs($revenueChange) }}%</span>
+                                        <span class="text-muted ms-1 fs-12">Last Month</span>
+                                    @endif
                                 </div>
                                 <a href="#!" class="text-reset fw-semibold fs-12">View More</a>
                             </div>
@@ -189,58 +208,51 @@
         <div class="col-lg-4">
             <div class="card card-height-100">
                 <div class="card-header d-flex align-items-center justify-content-between gap-2">
-                    <h4 class="card-title flex-grow-1">Top Pages</h4>
+                    <h4 class="card-title flex-grow-1">Top Selling Items</h4>
 
-                    <a href="#" class="btn btn-sm btn-soft-primary">View All</a>
+                    <a href="{{ route('products.index') }}" class="btn btn-sm btn-soft-primary">View All</a>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-hover table-nowrap table-centered m-0">
+                    <table class="table table-hover table-sm table-nowrap table-centered m-0">
                         <thead class="bg-light bg-opacity-50">
                             <tr>
-                                <th class="text-muted ps-3">Page Path</th>
-                                <th class="text-muted">Page Views</th>
-                                <th class="text-muted">Exit Rate</th>
+                                <th class="text-muted ps-3">Item Name</th>
+                                <th class="text-muted">Quantity Sold</th>
+                                <th class="text-muted">Sale Amount</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="ps-3"><a href="#" class="text-muted">larkon/ecommerce.html</a>
-                                </td>
-                                <td>465 </td>
-                                <td><span class="badge badge-soft-success">4.4%</span></td>
-                            </tr>
-                            <tr>
-                                <td class="ps-3"><a href="#" class="text-muted">larkon/dashboard.html</a>
-                                </td>
-                                <td> 426</td>
-                                <td><span class="badge badge-soft-danger">20.4%</span></td>
-                            </tr>
-                            <tr>
-                                <td class="ps-3"><a href="#" class="text-muted">larkon/chat.html</a></td>
-                                <td>254 </td>
-                                <td><span class="badge badge-soft-warning">12.25%</span></td>
-                            </tr>
-                            <tr>
-                                <td class="ps-3"><a href="#" class="text-muted">larkon/auth-login.html</a>
-                                </td>
-                                <td> 3369</td>
-                                <td><span class="badge badge-soft-success">5.2%</span></td>
-                            </tr>
-                            <tr>
-                                <td class="ps-3"><a href="#" class="text-muted">larkon/email.html</a></td>
-                                <td>985 </td>
-                                <td><span class="badge badge-soft-danger">64.2%</span></td>
-                            </tr>
-                            <tr>
-                                <td class="ps-3"><a href="#" class="text-muted">larkon/social.html</a></td>
-                                <td>653 </td>
-                                <td><span class="badge badge-soft-success">2.4%</span></td>
-                            </tr>
-                            <tr>
-                                <td class="ps-3"><a href="#" class="text-muted">larkon/blog.html</a></td>
-                                <td>478 </td>
-                                <td><span class="badge badge-soft-danger">1.4%</span></td>
-                            </tr>
+                            @forelse($topItems as $topItem)
+                                <tr>
+                                    <td class="ps-3 text-capitalize"><a href="#"
+                                            class="text-muted">{{ $topItem->item_name }}
+                                            <small>({{ $topItem->size_name }})</small></a>
+                                    </td>
+                                    <td>{{ $topItem->total }}</td>
+                                    <td>
+                                        £{{ $topItem->total * $topItem->price }}
+                                        {{-- @php
+                                            $percentage =
+                                                $totalSold > 0
+                                                    ? round(($topItem->quantity_sold / $totalSold) * 100, 1)
+                                                    : 0;
+                                        @endphp
+                                        @if ($percentage >= 20)
+                                            <span class="badge badge-soft-success">
+                                                {{ $percentage }}%
+                                            </span>
+                                        @else
+                                            <span class="badge badge-soft-danger">
+                                                {{ $percentage }}%
+                                            </span>
+                                        @endif
+                                        <span class="badge badge-soft-success">4.4%</span> --}}
+                                    </td>
+                                </tr>
+                            @empty
+                                <td colspan="3" class="text-center">No top selling items</td>
+                            @endforelse
+
                         </tbody>
                     </table>
                 </div>
