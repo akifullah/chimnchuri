@@ -49,7 +49,7 @@ var options = {
     stroke: {
         dashArray: 4
     },
-    colors: ["#ff6c2f", "#22c55e"],
+    colors: ["#396430", "#22c55e"],
     series: [65.2],
     labels: ['Returning Customer'],
     responsive: [{
@@ -193,7 +193,7 @@ var options = {
             borderRadius: 3,
         },
     },
-    colors: ["#ff6c2f", "#22c55e"],
+    colors: ["#396430", "#22c55e"],
     tooltip: {
         shared: true,
         y: [{
