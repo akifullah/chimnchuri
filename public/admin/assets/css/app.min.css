@@ -173,7 +173,7 @@ html[data-bs-theme=dark][data-topbar-color=light] {
   --bs-link-color-rgb: 132, 134, 167;
   --bs-link-decoration: none;
   --bs-link-hover-color: var(--primary-brand-color);
-  --bs-link-hover-color-rgb: 217, 92, 40;
+  --bs-link-hover-color-rgb: 57, 100, 48;
   --bs-link-hover-decoration: none;
   --bs-code-color: #ff86c8;
   --bs-highlight-color: #5d7186;

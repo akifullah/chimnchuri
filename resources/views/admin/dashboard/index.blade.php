@@ -8,9 +8,9 @@
 @section('content')
     <!-- Start here.... -->
     <div class="row">
-        <div class="col-xxl-5">
+        <div class="col-xxl-12">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div class="card overflow-hidden">
                         <div class="card-body">
                             <div class="row">
@@ -45,7 +45,7 @@
                         </div> <!-- end card body -->
                     </div> <!-- end card -->
                 </div> <!-- end col -->
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div class="card overflow-hidden">
                         <div class="card-body">
                             <div class="row">
@@ -72,7 +72,7 @@
                         </div> <!-- end card body -->
                     </div> <!-- end card -->
                 </div> <!-- end col -->
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div class="card overflow-hidden">
                         <div class="card-body">
                             <div class="row">
@@ -105,7 +105,7 @@
                         </div> <!-- end card body -->
                     </div> <!-- end card -->
                 </div> <!-- end col -->
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div class="card overflow-hidden">
                         <div class="card-body">
                             <div class="row">
@@ -141,7 +141,7 @@
             </div> <!-- end row -->
         </div> <!-- end col -->
 
-        <div class="col-xxl-7">
+        <div class="col-xxl-12">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
@@ -177,9 +177,6 @@
                             <p class="text-muted mb-2">Last Week</p>
                             <h3 class="text-dark mb-3">41.05k</h3>
                         </div> <!-- end col -->
-                    </div> <!-- end row -->
-                    <div class="text-center">
-                        <button type="button" class="btn btn-light shadow-none w-100">View Details</button>
                     </div> <!-- end row -->
                 </div>
             </div>
@@ -231,22 +228,6 @@
                                     <td>{{ $topItem->total }}</td>
                                     <td>
                                         £{{ $topItem->total * $topItem->price }}
-                                        {{-- @php
-                                            $percentage =
-                                                $totalSold > 0
-                                                    ? round(($topItem->quantity_sold / $totalSold) * 100, 1)
-                                                    : 0;
-                                        @endphp
-                                        @if ($percentage >= 20)
-                                            <span class="badge badge-soft-success">
-                                                {{ $percentage }}%
-                                            </span>
-                                        @else
-                                            <span class="badge badge-soft-danger">
-                                                {{ $percentage }}%
-                                            </span>
-                                        @endif
-                                        <span class="badge badge-soft-success">4.4%</span> --}}
                                     </td>
                                 </tr>
                             @empty
@@ -258,81 +239,6 @@
                 </div>
             </div>
         </div> <!-- end col -->
-
-        <div class="col-xl-4 d-none">
-            <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4 class="card-title">Recent Transactions</h4>
-                    <div>
-                        <a href="#!" class="btn btn-sm btn-primary">
-                            <i class="bx bx-plus me-1"></i>Add
-                        </a>
-                    </div>
-                </div> <!-- end card-header-->
-                <div class="card-body p-0">
-                    <div class="px-3" data-simplebar style="max-height: 398px;">
-                        <table class="table table-hover mb-0 table-centered">
-                            <tbody>
-                                <tr>
-                                    <td>24 April, 2024</td>
-                                    <td>$120.55</td>
-                                    <td><span class="badge bg-success">Cr</span></td>
-                                    <td>Commisions </td>
-                                </tr>
-                                <tr>
-                                    <td>24 April, 2024</td>
-                                    <td>$9.68</td>
-                                    <td><span class="badge bg-success">Cr</span></td>
-                                    <td>Affiliates </td>
-                                </tr>
-                                <tr>
-                                    <td>20 April, 2024</td>
-                                    <td>$105.22</td>
-                                    <td><span class="badge bg-danger">Dr</span></td>
-                                    <td>Grocery </td>
-                                </tr>
-                                <tr>
-                                    <td>18 April, 2024</td>
-                                    <td>$80.59</td>
-                                    <td><span class="badge bg-success">Cr</span></td>
-                                    <td>Refunds </td>
-                                </tr>
-                                <tr>
-                                    <td>18 April, 2024</td>
-                                    <td>$750.95</td>
-                                    <td><span class="badge bg-danger">Dr</span></td>
-                                    <td>Bill Payments </td>
-                                </tr>
-                                <tr>
-                                    <td>17 April, 2024</td>
-                                    <td>$455.62</td>
-                                    <td><span class="badge bg-danger">Dr</span></td>
-                                    <td>Electricity </td>
-                                </tr>
-                                <tr>
-                                    <td>17 April, 2024</td>
-                                    <td>$102.77</td>
-                                    <td><span class="badge bg-success">Cr</span></td>
-                                    <td>Interest </td>
-                                </tr>
-                                <tr>
-                                    <td>16 April, 2024</td>
-                                    <td>$79.49</td>
-                                    <td><span class="badge bg-success">Cr</span></td>
-                                    <td>Refunds </td>
-                                </tr>
-                                <tr>
-                                    <td>05 April, 2024</td>
-                                    <td>$980.00</td>
-                                    <td><span class="badge bg-danger">Dr</span></td>
-                                    <td>Shopping</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div> <!-- end card body -->
-            </div> <!-- end card-->
-        </div> <!-- end col-->
     </div> <!-- end row -->
 
     <div class="row">
@@ -344,8 +250,8 @@
                             Recent Orders
                         </h4>
 
-                        <a href="#!" class="btn btn-sm btn-soft-primary">
-                            <i class="bx bx-plus me-1"></i>Create Order
+                        <a href="{{ route('admin.orders') }}" class="btn btn-sm btn-soft-primary">
+                            All Orders
                         </a>
                     </div>
                 </div>
@@ -358,11 +264,9 @@
                                     Order ID.
                                 </th>
                                 <th>
-                                    Date
+                                    Date & Time
                                 </th>
-                                <th>
-                                    Product
-                                </th>
+
                                 <th>
                                     Customer Name
                                 </th>
@@ -372,121 +276,51 @@
                                 <th>
                                     Phone No.
                                 </th>
-                                <th>
-                                    Address
-                                </th>
+
                                 <th>
                                     Payment Type
                                 </th>
                                 <th>
-                                    Status
+                                    Order Status
                                 </th>
                             </tr>
                         </thead>
                         <!-- end thead-->
                         <tbody>
-                            <tr>
-                                <td class="ps-3">
-                                    <a href="order-detail.html">#RB5625</a>
-                                </td>
-                                <td>29 April 2024</td>
-                                <td>
-                                    <img src="assets/images/products/product-1(1).png" alt="product-1(1)"
-                                        class="img-fluid avatar-sm">
-                                </td>
-                                <td>
-                                    <a href="#!">Anna M. Hines</a>
-                                </td>
-                                <td>anna.hines@mail.com</td>
-                                <td>(+1)-555-1564-261</td>
-                                <td>Burr Ridge/Illinois</td>
-                                <td>Credit Card</td>
-                                <td>
-                                    <i class="bx bxs-circle text-success me-1"></i>Completed
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="ps-3">
-                                    <a href="order-detail.html">#RB9652</a>
-                                </td>
-                                <td>25 April 2024</td>
-                                <td>
-                                    <img src="assets/images/products/product-4.png" alt="product-4"
-                                        class="img-fluid avatar-sm">
-                                </td>
-                                <td>
-                                    <a href="#!">Judith H. Fritsche</a>
-                                </td>
-                                <td>judith.fritsche.com</td>
-                                <td>(+57)-305-5579-759</td>
-                                <td>SULLIVAN/Kentucky</td>
-                                <td>Credit Card</td>
-                                <td>
-                                    <i class="bx bxs-circle text-success me-1"></i>Completed
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="ps-3">
-                                    <a href="order-detail.html">#RB5984</a>
-                                </td>
-                                <td>25 April 2024</td>
-                                <td>
-                                    <img src="assets/images/products/product-5.png" alt="product-5"
-                                        class="img-fluid avatar-sm">
-                                </td>
-                                <td>
-                                    <a href="#!">Peter T. Smith</a>
-                                </td>
-                                <td>peter.smith@mail.com</td>
-                                <td>(+33)-655-5187-93</td>
-                                <td>Yreka/California</td>
-                                <td>Pay Pal</td>
-                                <td>
-                                    <i class="bx bxs-circle text-success me-1"></i>Completed
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="ps-3">
-                                    <a href="order-detail.html">#RB3625</a>
-                                </td>
-                                <td>21 April 2024</td>
-                                <td>
-                                    <img src="assets/images/products/product-6.png" alt="product-6"
-                                        class="img-fluid avatar-sm">
-                                </td>
-                                <td>
-                                    <a href="#!">Emmanuel J. Delcid</a>
-                                </td>
-                                <td>
-                                    emmanuel.delicid@mail.com
-                                </td>
-                                <td>(+30)-693-5553-637</td>
-                                <td>Atlanta/Georgia</td>
-                                <td>Pay Pal</td>
-                                <td>
-                                    <i class="bx bxs-circle text-primary me-1"></i>Processing
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="ps-3">
-                                    <a href="order-detail.html">#RB8652</a>
-                                </td>
-                                <td>18 April 2024</td>
-                                <td>
-                                    <img src="assets/images/products/product-1(2).png" alt="product-1(2)"
-                                        class="img-fluid avatar-sm">
-                                </td>
-                                <td>
-                                    <a href="#!">William J. Cook</a>
-                                </td>
-                                <td>william.cook@mail.com</td>
-                                <td>(+91)-855-5446-150</td>
-                                <td>Rosenberg/Texas</td>
-                                <td>Credit Card</td>
-                                <td>
-                                    <i class="bx bxs-circle text-primary me-1"></i>Processing
-                                </td>
-                            </tr>
+                            @forelse($recentOrders as $order)
+                                <tr>
+                                    <td class="ps-3">
+                                        <a
+                                            href="{{ route('admin.orders.show', $order->id) }}">{{ $order->order_number }}</a>
+                                    </td>
+                                    <td>{{ $order->created_at->format('d M Y h:i A') }}</td>
+                                    <td>
+                                        {{ $order->customer_name }}
+                                    </td>
+                                    <td>{{ $order->customer_email }}</td>
+                                    <td>{{ $order->customer_phone }}</td>
+                                    <td class="text-uppercase">{{ $order->payment_method }}</td>
+                                    <td class="text-capitalize">
+                                        @if ($order->order_status == 'pending')
+                                            <i class="bx bxs-circle text-warning me-1"></i>{{ $order->order_status }}
+                                        @elseif ($order->order_status == 'confirmed')
+                                            <i class="bx bxs-circle text-success me-1"></i>{{ $order->order_status }}
+                                        @elseif ($order->order_status == 'processing')
+                                            <i class="bx bxs-circle text-info me-1"></i>{{ $order->order_status }}
+                                        @elseif ($order->order_status == 'completed')
+                                            <i class="bx bxs-circle text-success me-1"></i>{{ $order->order_status }}
+                                        @elseif ($order->order_status == 'cancelled')
+                                            <i class="bx bxs-circle text-danger me-1"></i>{{ $order->order_status }}
+                                        @endif
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="7" class="text-center">No recent orders</td>
+                                </tr>
+                            @endforelse
+
+
                         </tbody>
                         <!-- end tbody -->
                     </table>
@@ -495,37 +329,7 @@
                 <!-- table responsive -->
 
                 <div class="card-footer border-top">
-                    <div class="row g-3">
-                        <div class="col-sm">
-                            <div class="text-muted">
-                                Showing
-                                <span class="fw-semibold">5</span>
-                                of
-                                <span class="fw-semibold">90,521</span>
-                                orders
-                            </div>
-                        </div>
 
-                        <div class="col-sm-auto">
-                            <ul class="pagination m-0">
-                                <li class="page-item">
-                                    <a href="#" class="page-link"><i class="bx bx-left-arrow-alt"></i></a>
-                                </li>
-                                <li class="page-item active">
-                                    <a href="#" class="page-link">1</a>
-                                </li>
-                                <li class="page-item">
-                                    <a href="#" class="page-link">2</a>
-                                </li>
-                                <li class="page-item">
-                                    <a href="#" class="page-link">3</a>
-                                </li>
-                                <li class="page-item">
-                                    <a href="#" class="page-link"><i class="bx bx-right-arrow-alt"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </div>
             <!-- end card -->
