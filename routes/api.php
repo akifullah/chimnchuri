@@ -6,7 +6,7 @@ use App\Http\Controllers\Api\V1\Admin\AddonItemController;
 use App\Http\Controllers\Api\V1\Admin\CategoryController;
 use App\Http\Controllers\Api\V1\Admin\ItemController;
 use App\Http\Controllers\Api\V1\Admin\ItemSizeController;
-use App\Http\Controllers\Api\v1\auth\AuthController;
+use App\Http\Controllers\Api\v1\Auth\AuthController;
 use App\Http\Controllers\Api\V1\Auth\PasswordController;
 use App\Http\Controllers\Api\V1\Auth\RegisterController;
 use App\Http\Controllers\Api\V1\Auth\TokenController;

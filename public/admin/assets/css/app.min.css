@@ -17975,11 +17975,11 @@ html[data-menu-size=hidden] .topbar {
 
 .wrapper .main-nav .navbar-nav .nav-item .nav-link.active {
   font-weight: 500;
-  border-left-color: var(--bs-primary);
+  border-left-color: var(--bs-white);
 }
 
 .wrapper .main-nav .navbar-nav .nav-item .nav-link.active .nav-icon {
-  color: var(--bs-primary);
+  color: var(--bs-white);
 }
 
 .wrapper .main-nav .navbar-nav .nav-item .nav-link.show,

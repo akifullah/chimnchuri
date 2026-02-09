@@ -70,7 +70,7 @@
                         </div> --}}
 
                         <!-- Notification -->
-                        <div class="dropdown topbar-item">
+                        {{-- <div class="dropdown topbar-item">
                             <button type="button" class="topbar-button position-relative"
                                 id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
@@ -182,7 +182,7 @@
                                         <i class="bx bx-right-arrow-alt ms-1"></i></a>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <!-- Theme Setting -->
                         {{-- <div class="topbar-item d-none d-md-flex">
@@ -215,8 +215,8 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <!-- item-->
-                                <h6 class="dropdown-header">Welcome Gaston!</h6>
-                                <a class="dropdown-item" href="pages-profile.html">
+                                <h6 class="dropdown-header">Welcome {{ Auth::guard('admin')->user()->name }}!</h6>
+                                {{-- <a class="dropdown-item" href="pages-profile.html">
                                     <i class="bx bx-user-circle text-muted fs-18 align-middle me-1"></i><span
                                         class="align-middle">Profile</span>
                                 </a>
@@ -236,7 +236,7 @@
                                 <a class="dropdown-item" href="auth-lock-screen.html">
                                     <i class="bx bx-lock text-muted fs-18 align-middle me-1"></i><span
                                         class="align-middle">Lock screen</span>
-                                </a>
+                                </a> --}}
 
                                 <div class="dropdown-divider my-1"></div>
 
@@ -416,111 +416,57 @@
 
                     {{-- PRODUCTS --}}
                     <li class="nav-item">
-                        <a class="nav-link menu-arrow" href="#sidebarProducts" data-bs-toggle="collapse"
-                            role="button" aria-expanded="false" aria-controls="sidebarProducts">
+                        <a href="{{ route('products.index') }}" class="nav-link" role="button" aria-expanded="false"
+                            aria-controls="sidebarProducts">
                             <span class="nav-icon">
                                 <iconify-icon icon="solar:t-shirt-bold-duotone"></iconify-icon>
                             </span>
                             <span class="nav-text"> Products </span>
                         </a>
-                        <div class="collapse" id="sidebarProducts">
-                            <ul class="nav sub-navbar-nav">
-                                <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="{{ route('products.index') }}">List</a>
-                                </li>
-                                <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="{{ route('products.create') }}">Create</a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
 
                     {{-- CATEGORY --}}
                     <li class="nav-item">
-                        <a class="nav-link menu-arrow" href="#sidebarCategory" data-bs-toggle="collapse"
-                            role="button" aria-expanded="false" aria-controls="sidebarCategory">
+                        <a href="{{ route('category.index') }}" class="nav-link" role="button" aria-expanded="false"
+                            aria-controls="sidebarCategory">
                             <span class="nav-icon">
                                 <iconify-icon icon="solar:clipboard-list-bold-duotone"></iconify-icon>
                             </span>
                             <span class="nav-text"> Category </span>
                         </a>
-                        <div class="collapse" id="sidebarCategory">
-                            <ul class="nav sub-navbar-nav">
-                                <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="{{ route('category.index') }}">List</a>
-                                </li>
-
-                                <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="{{ route('category.create') }}">Create</a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
 
                     {{-- ADDON CATEGORY --}}
                     <li class="nav-item">
-                        <a class="nav-link menu-arrow" href="#sidebarAddonCategory" data-bs-toggle="collapse"
-                            role="button" aria-expanded="false" aria-controls="sidebarAddonCategory">
+                        <a href="{{ route('admin.addon-categories.index') }}" class="nav-link" role="button"
+                            aria-expanded="false" aria-controls="sidebarAddonCategory">
                             <span class="nav-icon">
                                 <iconify-icon icon="solar:clipboard-list-bold-duotone"></iconify-icon>
                             </span>
                             <span class="nav-text"> Addon Category </span>
                         </a>
-                        <div class="collapse" id="sidebarAddonCategory">
-                            <ul class="nav sub-navbar-nav">
-                                <li class="sub-nav-item">
-                                    <a class="sub-nav-link"
-                                        href="{{ route('admin.addon-categories.index') }}">List</a>
-                                </li>
-
-                                <li class="sub-nav-item">
-                                    <a class="sub-nav-link"
-                                        href="{{ route('admin.addon-categories.create') }}">Create</a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
 
                     {{-- ADDON ITEMS --}}
                     <li class="nav-item">
-                        <a class="nav-link menu-arrow" href="#sidebarAddonItems" data-bs-toggle="collapse"
-                            role="button" aria-expanded="false" aria-controls="sidebarAddonItems">
+                        <a href="{{ route('admin.addon-items.index') }}" class="nav-link" role="button"
+                            aria-expanded="false" aria-controls="sidebarAddonItems">
                             <span class="nav-icon">
                                 <iconify-icon icon="solar:t-shirt-bold-duotone"></iconify-icon>
                             </span>
                             <span class="nav-text"> Addon Items </span>
                         </a>
-                        <div class="collapse" id="sidebarAddonItems">
-                            <ul class="nav sub-navbar-nav">
-                                <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="{{ route('admin.addon-items.index') }}">List</a>
-                                </li>
-                                <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="{{ route('admin.addon-items.create') }}">Create</a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
 
                     {{-- USERS --}}
                     <li class="nav-item">
-                        <a class="nav-link menu-arrow" href="#sidebarUsers" data-bs-toggle="collapse" role="button"
+                        <a href="{{ route('admin.users.index') }}" class="nav-link" role="button"
                             aria-expanded="false" aria-controls="sidebarUsers">
                             <span class="nav-icon">
                                 <iconify-icon icon="solar:users-group-rounded-bold"></iconify-icon>
                             </span>
                             <span class="nav-text"> Users </span>
                         </a>
-                        <div class="collapse" id="sidebarUsers">
-                            <ul class="nav sub-navbar-nav">
-                                <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="{{ route('admin.users.index') }}">List</a>
-                                </li>
-                                <li class="sub-nav-item">
-                                    <a class="sub-nav-link" href="{{ route('admin.users.create') }}">Create</a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ Route::is('admin.orders*') ? 'active' : '' }}"
@@ -559,14 +505,6 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('payment-gateways.index') }}">
-                            <span class="nav-icon">
-                                <iconify-icon icon="solar:card-bold-duotone"></iconify-icon>
-                            </span>
-                            <span class="nav-text"> Payment Gateways </span>
-                        </a>
-                    </li>
 
                     {{-- SETTINGS --}}
                     <li class="nav-item">
@@ -589,6 +527,14 @@
                                 <li class="sub-nav-item">
                                     <a class="sub-nav-link" href="{{ route('admin.working-hours') }}">Working
                                         Hours</a>
+                                </li>
+
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link" href="{{ route('payment-gateways.index') }}">Payment
+                                        Gateways</a>
+                                </li>
+                                <li class="sub-nav-item">
+                                    <a class="sub-nav-link" href="{{ route('admin.smtp.index') }}">SMTP Setting</a>
                                 </li>
                             </ul>
                         </div>
