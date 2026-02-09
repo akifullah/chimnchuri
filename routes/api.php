@@ -23,7 +23,7 @@ Route::prefix("v1")->group(function () {
 
         // PUBLIC ROUTES
         Route::post('/refresh', [TokenController::class, 'refresh'])->name("auth.refresh");
-        Route::post("/login", [AuthController::class, "login"])->name("auth.login");
+        // Route::post("/login", [AuthController::class, "login"])->name("auth.login");
         Route::post("/register", [RegisterController::class, "register"])->name("auth.register");
 
         // FORGET PASSWORD
@@ -53,6 +53,16 @@ Route::prefix("v1")->group(function () {
 
     // FRONTEND
     Route::prefix("frontend")->group(function () {
+        Route::post("/register", [RegisterController::class, "register"])->name("auth.register");
+        Route::post("/login", [AuthController::class, "login"])->name("auth.login");
+        Route::post('/refresh', [TokenController::class, 'refresh'])->name("auth.refresh");
+
+        Route::group(["middleware" => "auth:sanctum"], function () {
+            Route::get('profile', [AuthController::class, 'profile'])->name("auth.profile");
+            Route::post('logout', [AuthController::class, 'logout'])->name("auth.logout");
+        });
+
+
         Route::get("/categories", [CategoryApiController::class, "index"]);
         Route::get("/categories/{id}", [CategoryApiController::class, "show"]);
 

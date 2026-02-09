@@ -31,8 +31,6 @@ class RegisterController extends Controller
                     "data" => $user,
                 ], 201);
             }
-
-
         } catch (Exception $e) {
             return response()->json([
                 "success" => false,
@@ -40,6 +38,5 @@ class RegisterController extends Controller
                 "errors" => $e->getMessage()
             ], 500);
         }
-
     }
 }

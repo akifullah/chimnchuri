@@ -17853,7 +17853,17 @@ html[data-menu-size=hidden] .topbar {
   transition: all 0.3s ease-in-out;
   line-height: var(--bs-topbar-height);
   padding: 0 var(--bs-main-nav-item-padding-x);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.logo-box img {
+  margin-top: 20px;
+  height: 60px;
+  display: block
+}
+
 
 .logo-box .logo-sm {
   display: none;

@@ -8,6 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Address;
 
 class ForgetPassword extends Mailable
 {
@@ -31,6 +32,7 @@ class ForgetPassword extends Mailable
     {
         return new Envelope(
             subject: 'Reset Your Password - ' . config('app.name'),
+            replyTo: [new Address('akifullah0340@gmail.com')],
         );
     }
 
