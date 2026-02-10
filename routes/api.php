@@ -40,7 +40,7 @@ Route::prefix("v1")->group(function () {
 
     // ADMIN ROUTES
     // Route::apiResource("/categories", CategoryController::class);
-    // Route::apiResource("/items", ItemController::class);
+    Route::apiResource("/items", ItemController::class);
     // Route::apiResource("/items/sizes", ItemSizeController::class);
     // Route::apiResource("/addon-categories", AddonCategoryController::class);
     // Route::apiResource("/addon-items", AddonItemController::class);

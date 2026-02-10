@@ -88,7 +88,7 @@ class Item extends Model implements HasMedia
         return $this->hasMany(AddonGroup::class)
             ->where('is_active', true)
             ->orderBy('sort_order')
-            ->with('items.addonItem'); // Auto-load nested relations
+            ->with('addonCategory:id,name', 'items.addonItem'); // Auto-load nested relations
     }
 
     public function addonItems()
