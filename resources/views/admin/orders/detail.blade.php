@@ -167,6 +167,21 @@
                                                     £{{ $item->price * $item->quantity }}
                                                 </td>
                                             </tr>
+                                            @foreach ($item->addons->groupBy('category_name') as $categoryName => $addons)
+                                                <tr>
+                                                    <td colspan="4" class="ps-5 py-1">
+                                                        <div class="text-muted fs-13 fw-bold">{{ $categoryName }}</div>
+                                                        @foreach ($addons as $addon)
+                                                            <div
+                                                                class="d-flex justify-content-between align-items-center text-muted fs-13 ps-2">
+                                                                <span>+ {{ $addon->name }} ({{ $addon->quantity }} x
+                                                                    £{{ $addon->price }})</span>
+                                                                <span>£{{ number_format($addon->price * $addon->quantity, 2) }}</span>
+                                                            </div>
+                                                        @endforeach
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         @empty
                                             <tr>
                                                 <td colspan="5" class="text-center">No items found</td>

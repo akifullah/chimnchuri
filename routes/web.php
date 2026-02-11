@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SmtpController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VoucherController;
+use App\Http\Controllers\PaymentController;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, "index"])->name('admin.dashboard')->middleware('admin');
@@ -81,3 +83,5 @@ Route::prefix('admin')->group(function () {
         Route::resource("branches", BranchController::class)->names("admin.branches");
     });
 });
+Route::post("/api/payment-intent", [PaymentController::class, "createPaymentIntent"])->name("payment-intent")->withoutMiddleware([VerifyCsrfToken::class]);
+Route::post('/api/process-checkout', [PaymentController::class, 'processCheckout'])->withoutMiddleware([VerifyCsrfToken::class]);
