@@ -15,11 +15,11 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['/*', 'sanctum/csrf-cookie'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => ["https://chimnchuri-frontend.vercel.app", "http://localhost:3000", "http://localhost:5173", "*"],
 
     'allowed_origins_patterns' => [],
 
