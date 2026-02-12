@@ -144,19 +144,23 @@ class PaymentController extends Controller
 
             $paymentIntent = PaymentIntent::create([
                 'amount' => $request?->amount * 100, // Convert to cents
-                'currency' => 'usd',
+                'currency' => 'gbp',
                 'metadata' => [
                     'order_id' => $order->id // Link the order ID for webhooks later
                 ]
             ]);
 
             return response()->json([
+                "success" => true,
+                "message" => "Order placed successfully",
                 'clientSecret' => $paymentIntent->client_secret,
                 'orderId' => $order->id
             ]);
         }
 
         return response()->json([
+            "success" => true,
+            "message" => "Order placed successfully",
             'orderId' => $order->id
         ]);
     }

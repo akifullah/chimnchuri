@@ -83,5 +83,3 @@ Route::prefix('admin')->group(function () {
         Route::resource("branches", BranchController::class)->names("admin.branches");
     });
 });
-Route::post("/api/payment-intent", [PaymentController::class, "createPaymentIntent"])->name("payment-intent")->withoutMiddleware([VerifyCsrfToken::class]);
-Route::post('/api/process-checkout', [PaymentController::class, 'processCheckout'])->withoutMiddleware([VerifyCsrfToken::class]);

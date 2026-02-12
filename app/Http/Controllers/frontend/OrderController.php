@@ -178,4 +178,15 @@ class OrderController extends Controller
             ], 500);
         }
     }
+
+    public function getOrder($id)
+    {
+
+        $order = Order::with("items.item.media", "items.addons", "timelines", "user")->findOrFail($id);
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Order fetched successfully',
+            'data' => $order
+        ]);
+    }
 }

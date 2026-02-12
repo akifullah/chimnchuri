@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Api\V1\Admin\AddonCategoryController;
 use App\Http\Controllers\Api\V1\Admin\AddonGroupController;
 use App\Http\Controllers\Api\V1\Admin\AddonItemController;
@@ -13,6 +14,8 @@ use App\Http\Controllers\Api\V1\Auth\TokenController;
 use App\Http\Controllers\frontend\CategoryApiController;
 use App\Http\Controllers\frontend\ItemApiController;
 use App\Http\Controllers\frontend\OrderController;
+use App\Http\Controllers\PaymentController;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -53,13 +56,13 @@ Route::prefix("v1")->group(function () {
 
     // FRONTEND
     Route::prefix("frontend")->group(function () {
-        Route::post("/register", [RegisterController::class, "register"])->name("auth.register");
-        Route::post("/login", [AuthController::class, "login"])->name("auth.login");
-        Route::post('/refresh', [TokenController::class, 'refresh'])->name("auth.refresh");
+        Route::post("/register", [RegisterController::class, "register"])->name("auth.register")->withoutMiddleware([VerifyCsrfToken::class]);
+        Route::post("/login", [AuthController::class, "login"])->name("auth.login")->withoutMiddleware([VerifyCsrfToken::class]);
+        Route::post('/refresh', [TokenController::class, 'refresh'])->name("auth.refresh")->withoutMiddleware([VerifyCsrfToken::class]);
 
         Route::group(["middleware" => "auth:sanctum"], function () {
-            Route::get('profile', [AuthController::class, 'profile'])->name("auth.profile");
-            Route::post('logout', [AuthController::class, 'logout'])->name("auth.logout");
+            Route::get('profile', [AuthController::class, 'profile'])->name("auth.profile")->withoutMiddleware([VerifyCsrfToken::class]);
+            Route::post('logout', [AuthController::class, 'logout'])->name("auth.logout")->withoutMiddleware([VerifyCsrfToken::class]);
         });
 
 
@@ -72,6 +75,11 @@ Route::prefix("v1")->group(function () {
 
         // orders
         Route::post("/place-order", [OrderController::class, "placeOrder"])->name("orders.place");
+        Route::get('/orders/{order}', [OrderController::class, 'getOrder'])->name('getOrder');
+
+        // PAYMENT
+        Route::post("/payment-intent", [PaymentController::class, "createPaymentIntent"])->name("payment-intent")->withoutMiddleware([VerifyCsrfToken::class]);
+        Route::post('/process-checkout', [PaymentController::class, 'processCheckout'])->withoutMiddleware([VerifyCsrfToken::class]);
     });
 });
 

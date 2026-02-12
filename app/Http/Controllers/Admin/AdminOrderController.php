@@ -19,7 +19,6 @@ class AdminOrderController extends Controller
     public function show($id)
     {
         $order = Order::with("items.item.media", "items.addons", "timelines", "user")->findOrFail($id);
-        // return $order;
         return view('admin.orders.detail', compact('order'));
     }
 
