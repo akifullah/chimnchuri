@@ -59,6 +59,6 @@ class AddonItemRepository
             return false;
         }
 
-        return $addonItem->delete();
+        return $addonItem->forceDelete();
     }
 }

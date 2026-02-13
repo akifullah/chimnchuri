@@ -120,7 +120,7 @@
         const myDropzone = new Dropzone("#productDropzone", {
             url: "/",
             autoProcessQueue: false,
-            maxFilesize: 2,
+            maxFilesize: 12,
             maxFiles: 10,
             uploadMultiple: false,
             parallelUploads: 10,

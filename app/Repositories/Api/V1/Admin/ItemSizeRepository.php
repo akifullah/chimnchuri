@@ -72,7 +72,7 @@ class ItemSizeRepository
     }
 
 
-    public function update($id, array $data, )
+    public function update($id, array $data,)
     {
         $size = $this->getById($id);
 
@@ -90,7 +90,6 @@ class ItemSizeRepository
         if (!$size) {
             return false;
         }
-        return $size->delete();
+        return $size->forceDelete();
     }
-
 }

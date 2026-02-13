@@ -59,6 +59,6 @@ class AddonCategoryRepository
             return false;
         }
 
-        return $addonCategory->delete();
+        return $addonCategory->forceDelete();
     }
 }

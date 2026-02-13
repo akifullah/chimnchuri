@@ -47,7 +47,7 @@ class CategoryRepository
         $category = $this->getById($id);
         if (!$category)
             return false;
-        $category->delete();
+        $category->forceDelete();
         return true;
     }
 }
