@@ -57,7 +57,7 @@ Route::prefix("v1")->group(function () {
     // FRONTEND
     Route::prefix("frontend")->group(function () {
         Route::post("/register", [RegisterController::class, "register"])->name("auth.register")->withoutMiddleware([VerifyCsrfToken::class]);
-        Route::post("/auth-login", [AuthController::class, "auth"])->name("auth.login")->withoutMiddleware([VerifyCsrfToken::class]);
+        Route::post("/login", [RegisterController::class, "auth"])->name("auth.login")->withoutMiddleware([VerifyCsrfToken::class]);
         Route::post('/refresh', [TokenController::class, 'refresh'])->name("auth.refresh")->withoutMiddleware([VerifyCsrfToken::class]);
 
         Route::group(["middleware" => "auth:sanctum"], function () {
