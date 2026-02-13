@@ -21,7 +21,7 @@ use Pest\Support\Str;
 
 class AuthController extends Controller
 {
-    public function login(AuthRequest $request)
+    public function auth(AuthRequest $request)
     {
 
         $data = $request->validated();
@@ -60,8 +60,6 @@ class AuthController extends Controller
                 "data" => $user
             ], 200)->cookie("access_token", $tokens["access_token"], 15, '/', null, true, true, false, 'none')
                 ->cookie("refresh_token", $tokens["refresh_token"], 60 * 24 * 7, '/', null, true, true, false, 'none');
-
-
         } catch (Exception $e) {
             return response()->json([
                 "success" => false,
@@ -69,14 +67,11 @@ class AuthController extends Controller
                 "errors" => $e->getMessage()
             ], 500);
         }
-
-
     }
 
     public function profile(Request $request)
     {
         return $request->user();
-
     }
 
     // LOGOUT 
@@ -89,10 +84,5 @@ class AuthController extends Controller
             'message' => 'Logged out successfully'
         ])->cookie('access_token', '', -1)
             ->cookie('refresh_token', '', -1);
-
     }
-
-
-
-
 }
