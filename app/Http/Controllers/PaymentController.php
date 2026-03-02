@@ -208,6 +208,8 @@ class PaymentController extends Controller
             if ($order->customer_email) {
                 \Illuminate\Support\Facades\Mail::to($order->customer_email)->send(new \App\Mail\OrderPlaced($order));
             }
+            // Notify the business with admin template
+            \Illuminate\Support\Facades\Mail::to('akifullah@gmail.com')->send(new \App\Mail\AdminOrderPlaced($order));
         } catch (\Exception $e) {
             logger()->error('Failed to send order confirmation email: ' . $e->getMessage());
         }
@@ -248,6 +250,17 @@ class PaymentController extends Controller
                 $order->update([
                     'payment_status' => 'paid',
                 ]);
+
+                // Send confirmation emails for online payments
+                try {
+                    if ($order->customer_email) {
+                        \Illuminate\Support\Facades\Mail::to($order->customer_email)->send(new \App\Mail\OrderPlaced($order));
+                    }
+                    // Notify the business with admin template
+                    \Illuminate\Support\Facades\Mail::to('info@chimnchurri.com')->send(new \App\Mail\AdminOrderPlaced($order));
+                } catch (\Exception $e) {
+                    logger()->error('Failed to send order confirmation email (webhook): ' . $e->getMessage());
+                }
             }
         }
 
