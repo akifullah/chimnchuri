@@ -124,7 +124,7 @@
                         </div> <!-- end card body -->
                         <div class="card-footer py-2 bg-light bg-opacity-50">
                             <div class="d-flex align-items-center justify-content-between">
-                                <div>
+                                {{-- <div>
                                     @if ($revenueChange >= 0)
                                         <span class="text-success"> <i class="bx bxs-up-arrow fs-12"></i>
                                             {{ $revenueChange }}%</span>
@@ -134,7 +134,7 @@
                                             {{ abs($revenueChange) }}%</span>
                                         <span class="text-muted ms-1 fs-12">Last Month</span>
                                     @endif
-                                </div>
+                                </div> --}}
                                 {{-- <a href="#!" class="text-reset fw-semibold fs-12">View More</a> --}}
                             </div>
                         </div> <!-- end card body -->
