@@ -1,5 +1,20 @@
 @extends('admin.layouts.app')
 
+@section('style')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
+    <style>
+        .note-editor.note-frame {
+            border: 1px solid #ced4da;
+            border-radius: 0.375rem;
+        }
+
+        .note-editor .note-editing-area .note-editable {
+            background-color: var(--bs-light-bg-subtle, #fcfcfd);
+            min-height: 150px;
+        }
+    </style>
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-lg-12">
@@ -64,10 +79,10 @@
                             <div class="col-lg-12">
                                 <div class="mb-3">
                                     <label for="bio" class="form-label">Bio / Description</label>
-                                    <textarea class="form-control bg-light-subtle @error('bio') is-invalid @enderror" id="bio" rows="5"
-                                        placeholder="In short, describe the team member..." name="bio">{{ old('bio') }}</textarea>
+                                    <textarea class="d-none" name="bio" id="bioHidden">{{ old('bio') }}</textarea>
+                                    <div id="bioEditor">{!! old('bio') !!}</div>
                                     @error('bio')
-                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        <div class="text-danger small mt-1">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -88,4 +103,35 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('javascript')
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#bioEditor').summernote({
+                placeholder: 'In short, describe the team member...',
+                height: 200,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'strikethrough', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'hr']],
+                    ['view', ['fullscreen', 'codeview']],
+                ],
+                callbacks: {
+                    onChange: function(contents) {
+                        $('#bioHidden').val(contents);
+                    }
+                }
+            });
+
+            // Sync before form submit
+            $('form').on('submit', function() {
+                $('#bioHidden').val($('#bioEditor').summernote('code'));
+            });
+        });
+    </script>
 @endsection
