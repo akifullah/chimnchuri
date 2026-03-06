@@ -79,7 +79,7 @@ class TimeSlotController extends Controller
 
         $now = Carbon::now();
 
-        $query = TimeSlot::where("is_active", true);
+        $query = TimeSlot::where("is_active", true)->where("order_type", "delivery");
 
         $timeSlots = $query->get()->map(function ($timeSlot) use ($now, $slotOrders) {
 

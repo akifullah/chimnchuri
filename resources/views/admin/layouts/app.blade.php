@@ -386,7 +386,7 @@
         <!-- ========== Topbar End ========== -->
 
         <!-- ========== App Menu Start ========== -->
-        <div class="main-nav">
+        <div class="main-nav pb-5">
             <!-- Sidebar Logo -->
             <div class="logo-box text-center">
                 <a href="{{ route('admin.dashboard') }}" style="height: 100px; display: inline-block;">
