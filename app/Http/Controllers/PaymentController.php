@@ -207,14 +207,12 @@ class PaymentController extends Controller
             ]);
         }
 
+        // For COD orders, only send admin notification now.
+        // Customer email will be sent when admin confirms the order.
         try {
-            if ($order->customer_email) {
-                \Illuminate\Support\Facades\Mail::to($order->customer_email)->send(new \App\Mail\OrderPlaced($order));
-            }
-            // Notify the business with admin template
             \Illuminate\Support\Facades\Mail::to('info@chimnchurri.com')->send(new \App\Mail\AdminOrderPlaced($order));
         } catch (\Exception $e) {
-            logger()->error('Failed to send order confirmation email: ' . $e->getMessage());
+            logger()->error('Failed to send admin order notification email: ' . $e->getMessage());
         }
 
         return response()->json([
@@ -251,7 +249,7 @@ class PaymentController extends Controller
             $paymentIntent = $event->data->object;
             $orderId = $paymentIntent->metadata->order_id;
 
-            $order = Order::find($orderId);
+            $order = Order::with(['items.addons', 'time_slots'])->find($orderId);
             if ($order) {
                 $order->update([
                     'payment_status' => 'paid',
@@ -262,8 +260,6 @@ class PaymentController extends Controller
                     if ($order->customer_email) {
                         \Illuminate\Support\Facades\Mail::to($order->customer_email)->send(new \App\Mail\OrderPlaced($order));
                     }
-                    // Notify the business with admin template
-                    \Illuminate\Support\Facades\Mail::to('info@chimnchurri.com')->send(new \App\Mail\AdminOrderPlaced($order));
                 } catch (\Exception $e) {
                     logger()->error('Failed to send order confirmation email (webhook): ' . $e->getMessage());
                 }

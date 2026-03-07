@@ -10,9 +10,10 @@
             margin: 0;
             padding: 0;
             width: 100% !important;
-            background-color: #0f0f0f;
-            font-family: 'Instrument Sans', -apple-system, sans-serif;
+            background-color: #f0f4f0;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         table {
@@ -20,75 +21,85 @@
             border-collapse: collapse;
         }
 
+        img {
+            border: 0;
+            outline: none;
+        }
+
         .wrapper {
             width: 100%;
             table-layout: fixed;
-            background-color: #0f0f0f;
-            padding: 24px 0;
+            background-color: #f0f4f0;
+            padding: 28px 0;
         }
 
         .main {
-            background-color: #1a1a1a;
+            background-color: #ffffff;
             margin: 0 auto;
             width: 100%;
             max-width: 600px;
-            border-radius: 12px;
+            border-radius: 20px;
             overflow: hidden;
-            border: 1px solid #2a2a2a;
+            box-shadow: 0 8px 32px rgba(57, 100, 48, 0.10), 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
+        /* === HEADER === */
         .header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #111111 100%);
-            padding: 20px;
+            background: linear-gradient(135deg, #396430 0%, #4a7a3e 40%, #2d5026 100%);
+            padding: 24px 20px;
             text-align: center;
-            border-bottom: 1px solid #2a2a2a;
         }
 
         .header-title {
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 700;
+            color: rgba(255, 255, 255, 0.88);
+            font-size: 12px;
+            font-weight: 600;
             letter-spacing: 0.05em;
             text-transform: uppercase;
             margin: 8px 0 0;
         }
 
+        /* === ALERT BANNER === */
         .alert-banner {
-            background-color: #396430;
-            padding: 12px 16px;
+            background-color: #fafcfa;
+            border-bottom: 1px solid #e5ede3;
+            padding: 16px 20px;
             text-align: center;
         }
 
         .alert-banner p {
-            color: #ffffff;
-            font-size: 16px;
+            color: #1e293b;
+            font-size: 18px;
             font-weight: 800;
             margin: 0;
             letter-spacing: -0.02em;
         }
 
         .alert-banner .sub {
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 400;
-            color: rgba(255, 255, 255, 0.7);
-            margin-top: 2px;
+            color: #64748b;
+            margin-top: 4px;
         }
 
+        /* === CONTENT === */
         .content {
             padding: 20px;
         }
 
+        /* === SECTION TITLES === */
         .section-title {
             font-size: 11px;
             font-weight: 800;
-            color: #888888;
+            color: #396430;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin: 0 0 10px;
             padding-bottom: 6px;
-            border-bottom: 1px solid #2a2a2a;
+            border-bottom: 2px solid #e5ede3;
         }
 
+        /* === META GRID === */
         .meta-grid {
             width: 100%;
             margin-bottom: 20px;
@@ -102,7 +113,7 @@
         .meta-label {
             font-size: 10px;
             font-weight: 700;
-            color: #666666;
+            color: #94a3b8;
             text-transform: uppercase;
             letter-spacing: 0.08em;
         }
@@ -110,239 +121,66 @@
         .meta-value {
             font-size: 13px;
             font-weight: 700;
-            color: #e0e0e0;
+            color: #1e293b;
             margin-top: 2px;
         }
 
+        /* === BADGES === */
         .badge {
             display: inline-block;
-            padding: 3px 10px;
-            border-radius: 6px;
+            padding: 4px 12px;
+            border-radius: 20px;
             font-size: 10px;
-            font-weight: 800;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.04em;
         }
 
         .badge-collection {
-            background-color: rgba(14, 165, 233, 0.15);
-            color: #38bdf8;
+            background-color: #d1fae5;
+            color: #047857;
         }
 
         .badge-delivery {
-            background-color: rgba(168, 85, 247, 0.15);
-            color: #c084fc;
+            background-color: #dbeafe;
+            color: #1d4ed8;
         }
 
         .badge-paid {
-            background-color: rgba(34, 197, 94, 0.15);
-            color: #4ade80;
+            background-color: #d1fae5;
+            color: #047857;
         }
 
         .badge-pending {
-            background-color: rgba(234, 179, 8, 0.15);
-            color: #facc15;
+            background-color: #fef3c7;
+            color: #92400e;
         }
 
         .badge-cod {
-            background-color: rgba(249, 115, 22, 0.15);
-            color: #fb923c;
+            background-color: #ffedd5;
+            color: #c2410c;
         }
 
         .badge-online {
-            background-color: rgba(99, 102, 241, 0.15);
-            color: #818cf8;
+            background-color: #e0e7ff;
+            color: #4338ca;
         }
 
-        .item-table {
-            width: 100%;
-            margin-bottom: 16px;
-        }
-
-        .item-table th {
-            text-align: left;
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #555555;
-            border-bottom: 1px solid #2a2a2a;
-            padding: 6px 0;
-            font-weight: 700;
-        }
-
-        .item-table td {
-            padding: 10px 0;
-            border-bottom: 1px solid #1f1f1f;
-            vertical-align: top;
-        }
-
-        .item-name {
-            font-size: 13px;
-            font-weight: 700;
-            color: #ffffff;
-            margin: 0;
-        }
-
-        .item-size {
-            font-size: 11px;
-            color: #777777;
-            margin: 2px 0 0;
-        }
-
-        .addon-list {
-            margin: 4px 0 0;
-            padding-left: 10px;
-            border-left: 2px solid #333333;
-        }
-
-        .addon-list div {
-            font-size: 11px;
-            color: #999999;
-            margin: 2px 0;
-        }
-
-        .price {
-            font-size: 13px;
-            font-weight: 700;
-            color: #e0e0e0;
-            text-align: right;
-        }
-
-        .qty {
-            font-size: 13px;
-            font-weight: 700;
-            color: #cccccc;
-            text-align: center;
-        }
-
-        .summary-table {
-            width: 100%;
-            margin-top: 8px;
-        }
-
-        .summary-table td {
-            font-size: 12px;
-            color: #888888;
-            padding: 4px 0;
-        }
-
-        .summary-table .total td {
-            font-size: 16px;
-            font-weight: 800;
-            color: #ffffff;
-            padding-top: 10px;
-            border-top: 2px solid #333333;
-        }
-
-        .customer-box {
-            background-color: #141414;
-            border: 1px solid #2a2a2a;
-            border-radius: 8px;
-            padding: 14px;
-            margin-bottom: 16px;
-        }
-
-        .customer-box p {
-            font-size: 12px;
-            color: #aaaaaa;
-            margin: 3px 0;
-            line-height: 1.5;
-        }
-
-        .customer-box .name {
-            font-size: 14px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 6px;
-        }
-
-        .slot-table {
-            width: 100%;
-            margin-bottom: 16px;
-        }
-
-        .slot-table th {
-            text-align: left;
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #555555;
-            padding: 4px 0;
-            border-bottom: 1px solid #2a2a2a;
-        }
-
-        .slot-table td {
-            font-size: 12px;
-            color: #cccccc;
-            padding: 6px 0;
-            border-bottom: 1px solid #1f1f1f;
-        }
-
-        .instruction-box {
-            background-color: #141414;
-            border: 1px solid #333;
-            border-left: 3px solid #396430;
-            border-radius: 6px;
-            padding: 10px 14px;
-            margin-bottom: 16px;
-        }
-
-        .instruction-box .label {
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #666;
-            margin: 0 0 4px;
-        }
-
-        .instruction-box p {
-            font-size: 12px;
-            color: #ccc;
-            margin: 0;
-            font-style: italic;
-            line-height: 1.5;
-        }
-
-        .btn {
-            background-color: #396430;
-            color: #ffffff !important;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 800;
-            font-size: 12px;
-            display: inline-block;
-            margin-top: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .footer {
-            padding: 16px;
-            text-align: center;
-            border-top: 1px solid #2a2a2a;
-        }
-
-        .footer p {
-            font-size: 10px;
-            color: #555555;
-            margin: 2px 0;
-        }
-
+        /* === HIGHLIGHT TOTAL === */
         .highlight-total {
-            background: linear-gradient(135deg, rgba(57, 100, 48, 0.2) 0%, rgba(57, 100, 48, 0.05) 100%);
-            border: 1px solid rgba(57, 100, 48, 0.3);
-            border-radius: 8px;
-            padding: 12px 16px;
+            background: linear-gradient(135deg, #f0f7ef 0%, #e8f5e6 100%);
+            border: 1px solid #d4e5d0;
+            border-radius: 16px;
+            padding: 14px 18px;
             text-align: center;
-            margin: 12px 0;
+            margin: 16px 0;
+            box-shadow: 0 1px 4px rgba(57, 100, 48, 0.06);
         }
 
         .highlight-total .amount {
             font-size: 28px;
             font-weight: 900;
-            color: #4ade80;
+            color: #396430;
             letter-spacing: -0.02em;
         }
 
@@ -351,9 +189,284 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: #666;
+            color: #64748b;
         }
 
+        /* === CUSTOMER BOX === */
+        .customer-box {
+            background-color: #fafcfa;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 4px rgba(57, 100, 48, 0.06);
+        }
+
+        .customer-box p {
+            font-size: 12.5px;
+            color: #475569;
+            margin: 3px 0;
+            line-height: 1.5;
+        }
+
+        .customer-box .name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 6px;
+        }
+
+        /* === ITEMS TABLE === */
+        .item-table {
+            width: 100%;
+            margin-bottom: 16px;
+        }
+
+        .item-table th {
+            text-align: left;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #94a3b8;
+            border-bottom: 2px solid #e5ede3;
+            padding: 6px 0;
+            font-weight: 600;
+        }
+
+        .item-table td {
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: top;
+        }
+
+        .item-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 0;
+        }
+
+        .item-size {
+            font-size: 11px;
+            color: #64748b;
+            margin: 2px 0 0;
+        }
+
+        .price {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1e293b;
+            text-align: right;
+        }
+
+        .qty {
+            font-size: 13px;
+            font-weight: 600;
+            color: #475569;
+            text-align: center;
+        }
+
+        /* === SLOT TABLE === */
+        .slot-table {
+            width: 100%;
+            margin-bottom: 16px;
+        }
+
+        .slot-table th {
+            text-align: left;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #94a3b8;
+            padding: 4px 0;
+            border-bottom: 2px solid #e5ede3;
+            font-weight: 600;
+        }
+
+        .slot-table td {
+            font-size: 12px;
+            color: #475569;
+            padding: 6px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        /* === SUMMARY TABLE === */
+        .summary-table {
+            width: 100%;
+            margin-top: 8px;
+            border-top: 2px solid #e5ede3;
+            padding-top: 8px;
+        }
+
+        .summary-table td {
+            font-size: 13px;
+            color: #64748b;
+            padding: 4px 0;
+        }
+
+        .summary-table .total td {
+            font-size: 16px;
+            font-weight: 700;
+            color: #396430;
+            padding-top: 10px;
+            border-top: 2px solid #e5ede3;
+        }
+
+        /* === INSTRUCTIONS BOX === */
+        .instructions-box {
+            background: linear-gradient(135deg, #fafcfa 0%, #f0f7ef 100%);
+            border: 1px solid #d4e5d0;
+            border-left: 4px solid #396430;
+            border-radius: 0 16px 16px 0;
+            padding: 20px 18px;
+            margin: 20px 0;
+            box-shadow: 0 1px 4px rgba(57, 100, 48, 0.06);
+        }
+
+        .instructions-box h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #2d5026;
+            margin: 0 0 14px;
+        }
+
+        .instructions-box p,
+        .instructions-box li {
+            font-size: 12.5px;
+            color: #475569;
+            line-height: 1.6;
+            margin: 0 0 6px;
+        }
+
+        .instructions-box a {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+        .instructions-box b {
+            color: #1e293b;
+        }
+
+        .instructions-box ul {
+            padding-left: 18px;
+            margin: 6px 0 12px;
+        }
+
+        .instructions-box li {
+            margin-bottom: 4px;
+        }
+
+        .instructions-box .sub-heading {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 14px 0 4px;
+        }
+
+        /* === WARNING BOX === */
+        .warning-box {
+            background-color: #fef3c7;
+            border: 1px solid #fcd34d;
+            border-radius: 16px;
+            padding: 14px 16px;
+            margin: 12px 0;
+            box-shadow: 0 1px 4px rgba(250, 204, 21, 0.15);
+        }
+
+        .warning-box p,
+        .warning-box li {
+            font-size: 12.5px;
+            color: #92400e;
+            line-height: 1.5;
+            margin: 0 0 4px;
+        }
+
+        .warning-box b {
+            color: #78350f;
+        }
+
+        .warning-box ul {
+            padding-left: 18px;
+            margin: 6px 0;
+        }
+
+        /* === ORDER NOTES === */
+        .instruction-box {
+            background-color: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 16px;
+            padding: 14px 16px;
+            margin-bottom: 16px;
+        }
+
+        .instruction-box .label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #64748b;
+            margin: 0 0 4px;
+        }
+
+        .instruction-box p {
+            font-size: 12.5px;
+            color: #475569;
+            margin: 0;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        /* === CTA BUTTON === */
+        .btn {
+            background: linear-gradient(135deg, #396430 0%, #4a7a3e 100%);
+            color: #ffffff !important;
+            padding: 13px 28px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 13px;
+            display: inline-block;
+            margin-top: 8px;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 12px rgba(57, 100, 48, 0.25);
+        }
+
+        /* === SIGN-OFF === */
+        .sign-off {
+            text-align: center;
+            padding: 22px 0 6px;
+            border-top: 1px solid #f1f5f9;
+            margin-top: 24px;
+        }
+
+        .sign-off p {
+            font-size: 13px;
+            color: #475569;
+            margin: 0 0 2px;
+            line-height: 1.5;
+        }
+
+        .sign-off .team-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #396430;
+            margin-top: 4px;
+        }
+
+        /* === FOOTER === */
+        .footer {
+            background-color: #fafcfa;
+            padding: 18px 22px;
+            text-align: center;
+            border-top: 1px solid #e5ede3;
+        }
+
+        .footer p {
+            font-size: 10px;
+            color: #94a3b8;
+            margin: 2px 0;
+        }
+
+        /* === MOBILE === */
         @media only screen and (max-width: 480px) {
             .wrapper {
                 padding: 8px 0;
@@ -376,11 +489,7 @@
             }
 
             .alert-banner p {
-                font-size: 13px;
-            }
-
-            .alert-banner .sub {
-                font-size: 10px;
+                font-size: 14px;
             }
 
             .content {
@@ -389,8 +498,6 @@
 
             .section-title {
                 font-size: 10px;
-                margin: 0 0 8px;
-                padding-bottom: 4px;
             }
 
             .meta-label {
@@ -403,15 +510,11 @@
 
             .badge {
                 font-size: 9px;
-                padding: 2px 7px;
+                padding: 2px 8px;
             }
 
             .highlight-total .amount {
                 font-size: 22px;
-            }
-
-            .highlight-total .label {
-                font-size: 9px;
             }
 
             .highlight-total {
@@ -426,48 +529,17 @@
                 font-size: 12px;
             }
 
-            .customer-box p {
-                font-size: 11px;
-            }
-
             .item-name {
                 font-size: 11px;
             }
 
-            .item-size {
-                font-size: 10px;
-            }
-
-            .addon-list div {
-                font-size: 10px;
-            }
-
-            .price {
-                font-size: 11px;
-            }
-
+            .price,
             .qty {
-                font-size: 11px;
-            }
-
-            .summary-table td {
                 font-size: 11px;
             }
 
             .summary-table .total td {
                 font-size: 14px;
-            }
-
-            .slot-table td {
-                font-size: 11px;
-            }
-
-            .instruction-box .label {
-                font-size: 9px;
-            }
-
-            .instruction-box p {
-                font-size: 11px;
             }
 
             .btn {
@@ -489,8 +561,8 @@
                 {{-- Header --}}
                 <tr>
                     <td class="header">
-                        <img src="{{ $message->embed(public_path('admin/assets/images/chimnchurri.png')) }}"
-                            height="50" alt="{{ config('app.name') }}">
+                        {{-- <img src="{{ $message->embed(public_path('admin/assets/images/chimnchurri.png')) }}"
+                            height="50" alt="{{ config('app.name') }}"> --}}
                         <p class="header-title">Admin Order Notification</p>
                     </td>
                 </tr>
@@ -498,7 +570,7 @@
                 {{-- Alert Banner --}}
                 <tr>
                     <td class="alert-banner">
-                        <p>New Order #{{ $order->order_number }}</p>
+                        <p>📦 New Order #{{ $order->order_number }}</p>
                         <p class="sub">{{ $order->created_at->format('M d, Y \a\t h:i A') }}</p>
                     </td>
                 </tr>
@@ -552,7 +624,7 @@
                                     <div class="meta-value">{{ $order->items->count() }} items</div>
                                 </td>
                                 <td>
-                                    <div class="meta-label">Order Status</div>
+                                    <div class="meta-label">Status</div>
                                     <div class="meta-value" style="text-transform: capitalize;">
                                         {{ $order->order_status }}</div>
                                 </td>
@@ -564,49 +636,45 @@
                             <div class="label">Grand Total</div>
                             <div class="amount">£{{ number_format($order->grand_total, 2) }}</div>
                         </div>
+
                         {{-- Order Date --}}
                         @if ($order->order_date)
-                            <div
-                                style="background: rgba(14, 165, 233, 0.08); border: 1px solid rgba(14, 165, 233, 0.15); border-radius: 8px; padding: 10px 16px; margin-bottom: 16px; text-align: center;">
-                                <div
-                                    style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 2px;">
-                                    📅 Order Date</div>
-                                <div style="font-size: 15px; font-weight: 800; color: #38bdf8;">
-                                    {{ \Carbon\Carbon::parse($order->order_date)->format('l, j M Y') }}</div>
-                            </div>
+                            <table width="100%"
+                                style="margin-bottom: 20px; background-color: #fafcfa; border-radius: 16px; padding: 12px 18px; box-shadow: 0 1px 4px rgba(57, 100, 48, 0.06);">
+                                <tr>
+                                    <td style="font-size: 12px; color: #64748b;">📅 Order Date</td>
+                                    <td align="right" style="font-size: 13px; font-weight: 700; color: #1e293b;">
+                                        {{ \Carbon\Carbon::parse($order->order_date)->format('l, j M Y') }}
+                                    </td>
+                                </tr>
+                            </table>
                         @endif
 
                         {{-- Customer Details --}}
-                        <p class="section-title">Customer Details</p>
+                        <p class="section-title">👤 Customer Details</p>
                         <div class="customer-box">
                             <p class="name">{{ $order->customer_name }}</p>
-                            <p>{{ $order->customer_email ?? 'N/A' }}</p>
-                            @if ($order->customer_phone)
-                                <p>{{ $order->customer_phone }}</p>
+                            <p>📞 {{ $order->customer_phone }}</p>
+                            <p>✉️ {{ $order->customer_email ?? 'N/A' }}</p>
+                            @if ($order->order_type == 'collection' && $order->car_registration)
+                                <p style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #e5ede3;">
+                                    🚗 Car Reg: <strong>{{ $order->car_registration }}</strong>
+                                </p>
                             @endif
                             @if ($order->order_type == 'delivery')
-                                <p style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #2a2a2a;">
-                                    {{ $order->delivery_address }}@if ($order->city)
+                                <p style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #e5ede3;">
+                                    🚚 {{ $order->delivery_address }}@if ($order->city)
                                         , {{ $order->city }}
                                         @endif @if ($order->postal_code)
                                             , {{ $order->postal_code }}
                                         @endif
-                                </p>
-                            @elseif ($order->pickup_address)
-                                <p style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #2a2a2a;">
-                                    Pickup: <strong>{{ $order->pickup_address }}</strong>
-                                </p>
-                            @endif
-                            @if ($order->order_type == 'collection' && $order->car_registration)
-                                <p style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #2a2a2a;">
-                                    🚗 Car Reg: <strong>{{ $order->car_registration }}</strong>
                                 </p>
                             @endif
                         </div>
 
                         {{-- Time Slots --}}
                         @if ($order->time_slots && $order->time_slots->count() > 0)
-                            <p class="section-title">Time Slots</p>
+                            <p class="section-title">⏰ Time Slots</p>
                             <table class="slot-table">
                                 <thead>
                                     <tr>
@@ -617,8 +685,7 @@
                                 <tbody>
                                     @foreach ($order->time_slots as $slot)
                                         <tr>
-                                            <td>{{ $slot->start_time->format('g:i A') }} –
-                                                {{ $slot->end_time->format('g:i A') }}</td>
+                                            <td>{{ $slot->start_time->format('g:i A') }}</td>
                                             <td align="center"><strong>{{ $slot->capacity }}</strong></td>
                                         </tr>
                                     @endforeach
@@ -627,7 +694,7 @@
                         @endif
 
                         {{-- Order Items --}}
-                        <p class="section-title">Order Items</p>
+                        <p class="section-title">🛒 Order Items</p>
                         <table class="item-table">
                             <thead>
                                 <tr>
@@ -644,19 +711,25 @@
                                             @if ($item->size_name)
                                                 <p class="item-size">Size: {{ $item->size_name }}</p>
                                             @endif
-                                            @if ($item->addons->count() > 0)
-                                                <div class="addon-list">
-                                                    @foreach ($item->addons as $addon)
-                                                        <div>+ {{ $addon->quantity }}x {{ $addon->name }}
-                                                            — £{{ number_format($addon->price * $addon->quantity, 2) }}
-                                                        </div>
-                                                    @endforeach
-                                                </div>
-                                            @endif
                                         </td>
                                         <td class="qty">{{ $item->quantity }}</td>
                                         <td class="price">£{{ number_format($item->price * $item->quantity, 2) }}</td>
                                     </tr>
+                                    @if ($item->addons->count() > 0)
+                                        @foreach ($item->addons as $addon)
+                                            <tr>
+                                                <td
+                                                    style="padding: 2px 0 2px 10px; border-bottom: none; border-left: 2px solid #396430;">
+                                                    <span style="font-size: 11px; color: #64748b;">+
+                                                        {{ $addon->quantity }}x {{ $addon->name }}</span>
+                                                </td>
+                                                <td style="border-bottom: none;"></td>
+                                                <td align="right"
+                                                    style="font-size: 11px; font-weight: 600; color: #1e293b; padding: 2px 0; border-bottom: none; white-space: nowrap;">
+                                                    £{{ number_format($addon->price * $addon->quantity, 2) }}</td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>
@@ -665,27 +738,25 @@
                         <table class="summary-table">
                             <tr>
                                 <td>Subtotal</td>
-                                <td align="right" style="color: #ccc;">£{{ number_format($order->sub_total, 2) }}</td>
+                                <td align="right">£{{ number_format($order->sub_total, 2) }}</td>
                             </tr>
                             @if ($order->discount_total > 0)
                                 <tr>
                                     <td>Discount</td>
-                                    <td align="right" style="color: #4ade80;">
+                                    <td align="right" style="color: #16a34a; font-weight: 600;">
                                         -£{{ number_format($order->discount_total, 2) }}</td>
                                 </tr>
                             @endif
                             @if ($order->delivery_charges > 0)
                                 <tr>
                                     <td>Delivery Fee</td>
-                                    <td align="right" style="color: #ccc;">
-                                        £{{ number_format($order->delivery_charges, 2) }}</td>
+                                    <td align="right">£{{ number_format($order->delivery_charges, 2) }}</td>
                                 </tr>
                             @endif
                             @if ($order->tax_total > 0)
                                 <tr>
                                     <td>Tax</td>
-                                    <td align="right" style="color: #ccc;">£{{ number_format($order->tax_total, 2) }}
-                                    </td>
+                                    <td align="right">£{{ number_format($order->tax_total, 2) }}</td>
                                 </tr>
                             @endif
                             <tr class="total">
@@ -694,10 +765,88 @@
                             </tr>
                         </table>
 
+                        {{-- ===== COLLECTION INSTRUCTIONS ===== --}}
+                        @if ($order->order_type == 'collection')
+                            <div class="instructions-box">
+                                <h3>📣 Collection Details</h3>
+
+                                <p>Customer should text <b>full name used on the order</b> to
+                                    <b><a href="tel:07451221187">07451221187</a></b> 5–6 minutes before arrival.
+                                </p>
+
+                                <p class="sub-heading">🕠 Time</p>
+                                <p>
+                                    @if ($order->order_date)
+                                        <b>{{ \Carbon\Carbon::parse($order->order_date)->format('l, j M Y') }}</b>
+                                    @endif
+                                    @if ($order->time_slots && $order->time_slots->count() > 0)
+                                        —
+                                        <b>{{ $order->time_slots->first()->start_time->format('g:i A') }}</b>
+                                    @endif
+                                </p>
+
+                                <p class="sub-heading">📍 Location</p>
+                                <p>Google Maps – Search <b>"The Forest Tree"</b>, Chadderton, OL9 0HW, Oldham. Kerbside
+                                    service.</p>
+                                <p><a
+                                        href="https://maps.app.goo.gl/xHPGrVsnZm4Hcg9dA?g_st=ic">https://maps.app.goo.gl/xHPGrVsnZm4Hcg9dA</a>
+                                </p>
+                            </div>
+
+                            <div class="warning-box">
+                                <p><b>⚠️ IMPORTANT – DO NOT PARK INSIDE THE NURSERY CAR PARK</b></p>
+                                <ul>
+                                    <li>The nursery car park is private property.</li>
+                                    <li>Please park only along the kerb nearby and stay close to the nursery.</li>
+                                    <li>Kindly leave once food is collected, and please do not litter.</li>
+                                </ul>
+                            </div>
+
+                            <div class="instructions-box" style="margin-top: 12px;">
+                                <p class="sub-heading">🚘 Kerbside Service Only</p>
+                                <ul>
+                                    <li>Customer to remain in car.</li>
+                                    <li>Order brought directly to them.</li>
+                                    <li>Do <b>NOT</b> get out or knock on doors — strictly kerbside.</li>
+                                </ul>
+                            </div>
+
+                            {{-- ===== DELIVERY INSTRUCTIONS ===== --}}
+                        @else
+                            <div class="instructions-box">
+                                <h3>📣 Delivery Details</h3>
+
+                                <p>Customer must be available at delivery address. Contact
+                                    <b><a href="tel:07451221187">07451221187</a></b> for any issues.
+                                </p>
+
+                                <p class="sub-heading">🕠 Time</p>
+                                <p>
+                                    @if ($order->order_date)
+                                        <b>{{ \Carbon\Carbon::parse($order->order_date)->format('l, j M Y') }}</b>
+                                    @endif
+                                    @if ($order->time_slots && $order->time_slots->count() > 0)
+                                        —
+                                        <b>{{ $order->time_slots->first()->start_time->format('g:i A') }}</b>
+                                    @endif
+                                </p>
+
+                                <p class="sub-heading">📍 Address</p>
+                                <p>
+                                    <b>{{ $order->delivery_address }}@if ($order->city)
+                                            , {{ $order->city }}
+                                            @endif @if ($order->postal_code)
+                                                , {{ $order->postal_code }}
+                                            @endif
+                                    </b>
+                                </p>
+                            </div>
+                        @endif
+
                         {{-- Order Instructions --}}
                         @if ($order->order_instruction)
                             <div class="instruction-box" style="margin-top: 16px;">
-                                <p class="label">Order Instructions</p>
+                                <p class="label">📝 Order Instructions</p>
                                 <p>"{{ $order->order_instruction }}"</p>
                             </div>
                         @endif
@@ -705,7 +854,13 @@
                         {{-- Action Button --}}
                         <div style="text-align: center; margin-top: 20px;">
                             <a href="{{ config('app.url') }}/admin/orders/{{ $order->id }}" class="btn">View in
-                                Admin Panel</a>
+                                Admin Panel →</a>
+                        </div>
+
+                        {{-- Sign Off --}}
+                        <div class="sign-off">
+                            <p>Many Thanks!</p>
+                            <p class="team-name">The Chim 'N' Churri Team</p>
                         </div>
                     </td>
                 </tr>

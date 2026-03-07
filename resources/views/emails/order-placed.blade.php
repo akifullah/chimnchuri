@@ -32,7 +32,7 @@
             width: 100%;
             table-layout: fixed;
             background-color: #f0f4f0;
-            padding: 24px 0;
+            padding: 28px 0;
         }
 
         /* === MAIN CARD === */
@@ -41,55 +41,55 @@
             margin: 0 auto;
             width: 100%;
             max-width: 580px;
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 32px rgba(57, 100, 48, 0.10), 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         /* === HEADER === */
         .header-banner {
-            background: linear-gradient(135deg, #396430 0%, #4a7a3e 50%, #2d5026 100%);
-            padding: 28px 20px 22px;
+            background: linear-gradient(135deg, #396430 0%, #4a7a3e 40%, #2d5026 100%);
+            padding: 32px 24px 26px;
             text-align: center;
         }
 
         .header-banner img {
             height: 56px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .header-banner h1 {
             font-size: 22px;
             font-weight: 700;
             color: #ffffff;
-            margin: 0 0 4px;
+            margin: 0 0 6px;
             letter-spacing: -0.3px;
         }
 
         .header-banner p {
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(255, 255, 255, 0.88);
             margin: 0;
         }
 
         /* === CONTENT === */
         .content {
-            padding: 24px 22px;
+            padding: 20px 10px;
         }
 
         /* === ORDER META STRIP === */
         .order-strip {
             background-color: #fafcfa;
-            border: 1px solid #e5ede3;
-            border-radius: 10px;
-            padding: 14px 16px;
+            border-radius: 16px;
+            padding: 16px 18px;
             margin-bottom: 20px;
+            box-shadow: 0 1px 4px rgba(57, 100, 48, 0.06);
         }
 
         .order-strip td {
-            font-size: 12px;
+            font-size: 12.5px;
             color: #64748b;
-            padding: 3px 4px;
+            padding: 4px 6px;
         }
 
         .order-strip b {
@@ -99,7 +99,7 @@
 
         .badge {
             display: inline-block;
-            padding: 3px 10px;
+            padding: 4px 12px;
             border-radius: 20px;
             font-size: 10px;
             font-weight: 700;
@@ -120,10 +120,10 @@
         /* === CUSTOMER INFO === */
         .customer-card {
             background-color: #fafcfa;
-            border: 1px solid #e5ede3;
-            border-radius: 10px;
-            padding: 14px 16px;
+            border-radius: 16px;
+            padding: 16px 18px;
             margin-bottom: 20px;
+            box-shadow: 0 1px 4px rgba(57, 100, 48, 0.06);
         }
 
         .customer-card-title {
@@ -136,9 +136,9 @@
         }
 
         .customer-card td {
-            font-size: 12px;
+            font-size: 12.5px;
             color: #475569;
-            padding: 2px 0;
+            padding: 3px 0;
         }
 
         .customer-card b {
@@ -150,11 +150,9 @@
             font-size: 14px;
             font-weight: 700;
             color: #1e293b;
-            margin: 0 0 10px;
+            margin: 4px 0 12px;
             padding-bottom: 8px;
             border-bottom: 2px solid #e5ede3;
-            display: flex;
-            align-items: center;
         }
 
         /* === ITEMS TABLE === */
@@ -230,7 +228,7 @@
             font-size: 16px;
             font-weight: 700;
             color: #396430;
-            padding-top: 8px;
+            padding-top: 10px;
             border-top: 2px solid #e5ede3;
         }
 
@@ -263,13 +261,14 @@
             background: linear-gradient(135deg, #fafcfa 0%, #f0f7ef 100%);
             border: 1px solid #d4e5d0;
             border-left: 4px solid #396430;
-            border-radius: 0 10px 10px 0;
-            padding: 18px 16px;
+            border-radius: 0 16px 16px 0;
+            padding: 20px 18px;
             margin: 20px 0;
+            box-shadow: 0 1px 4px rgba(57, 100, 48, 0.06);
         }
 
         .instructions-box h3 {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 700;
             color: #2d5026;
             margin: 0 0 14px;
@@ -277,7 +276,7 @@
 
         .instructions-box p,
         .instructions-box li {
-            font-size: 12px;
+            font-size: 12.5px;
             color: #475569;
             line-height: 1.6;
             margin: 0 0 6px;
@@ -298,24 +297,25 @@
         }
 
         .instructions-box .sub-heading {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 700;
             color: #1e293b;
-            margin: 12px 0 4px;
+            margin: 14px 0 4px;
         }
 
         /* === WARNING BOX === */
         .warning-box {
             background-color: #fef3c7;
             border: 1px solid #fcd34d;
-            border-radius: 8px;
-            padding: 12px 14px;
-            margin: 10px 0;
+            border-radius: 16px;
+            padding: 14px 16px;
+            margin: 12px 0;
+            box-shadow: 0 1px 4px rgba(250, 204, 21, 0.15);
         }
 
         .warning-box p,
         .warning-box li {
-            font-size: 12px;
+            font-size: 12.5px;
             color: #92400e;
             line-height: 1.5;
             margin: 0 0 4px;
@@ -327,20 +327,20 @@
 
         .warning-box ul {
             padding-left: 18px;
-            margin: 4px 0;
+            margin: 6px 0;
         }
 
         /* === ORDER INSTRUCTIONS === */
         .order-notes {
             background-color: #f8fafc;
             border: 1px dashed #cbd5e1;
-            border-radius: 8px;
-            padding: 12px 14px;
-            margin-top: 16px;
+            border-radius: 16px;
+            padding: 14px 16px;
+            margin-top: 18px;
         }
 
         .order-notes p {
-            font-size: 12px;
+            font-size: 12.5px;
             color: #64748b;
             font-style: italic;
             margin: 0;
@@ -351,22 +351,23 @@
         .btn {
             background: linear-gradient(135deg, #396430 0%, #4a7a3e 100%);
             color: #ffffff !important;
-            padding: 12px 28px;
+            padding: 13px 32px;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 50px;
             font-weight: 700;
             font-size: 13px;
             display: inline-block;
             margin-top: 8px;
             letter-spacing: 0.3px;
+            box-shadow: 0 4px 12px rgba(57, 100, 48, 0.25);
         }
 
         /* === SIGN-OFF === */
         .sign-off {
             text-align: center;
-            padding: 20px 0 4px;
+            padding: 22px 0 6px;
             border-top: 1px solid #f1f5f9;
-            margin-top: 20px;
+            margin-top: 24px;
         }
 
         .sign-off p {
@@ -386,7 +387,7 @@
         /* === FOOTER === */
         .footer {
             background-color: #fafcfa;
-            padding: 16px 20px;
+            padding: 18px 22px;
             text-align: center;
             border-top: 1px solid #e5ede3;
         }
@@ -406,9 +407,9 @@
                 {{-- ===== HEADER BANNER ===== --}}
                 <tr>
                     <td class="header-banner">
-                        <img src="{{ $message->embed(public_path('admin/assets/images/chimnchurri.png')) }}"
-                            height="56" alt="{{ config('app.name') }}">
-                        <h1>Order Confirmed! 🎉</h1>
+                        {{-- <img src="{{ $message->embed(public_path('admin/assets/images/chimnchurri.png')) }}"
+                            height="56" alt="{{ config('app.name') }}"> --}}
+                        <h1>Order Placed Successfully!</h1>
                         <p>Thank you for your order, {{ $order->customer_name }}!</p>
                     </td>
                 </tr>
@@ -421,10 +422,7 @@
                                 <td>Order No.</td>
                                 <td align="right"><b>#{{ $order->order_number }}</b></td>
                             </tr>
-                            <tr>
-                                <td>Date</td>
-                                <td align="right"><b>{{ $order->created_at->format('D, j M Y') }}</b></td>
-                            </tr>
+
                             <tr>
                                 <td>Payment</td>
                                 <td align="right">
@@ -475,7 +473,7 @@
                         {{-- ===== ORDER DATE ===== --}}
                         @if ($order->order_date)
                             <table width="100%"
-                                style="margin-bottom: 16px; background-color: #fafcfa; border: 1px solid #e5ede3; border-radius: 10px; padding: 10px 16px;">
+                                style="margin-bottom: 20px; background-color: #fafcfa;  border-radius: 16px; padding: 12px 18px; box-shadow: 0 1px 4px rgba(57, 100, 48, 0.06);">
                                 <tr>
                                     <td style="font-size: 12px; color: #64748b;">📅 Order Date</td>
                                     <td align="right" style="font-size: 13px; font-weight: 700; color: #1e293b;">
@@ -487,7 +485,7 @@
 
                         {{-- ===== TIME SLOTS ===== --}}
                         @if ($order->time_slots && $order->time_slots->count() > 0)
-                            <p class="section-title">⏰ Time Slots</p>
+                            <p class="section-title">Time Slots</p>
                             <table class="slot-table">
                                 <thead>
                                     <tr>
@@ -498,8 +496,7 @@
                                 <tbody>
                                     @foreach ($order->time_slots as $slot)
                                         <tr>
-                                            <td>{{ $slot->start_time->format('g:i A') }} –
-                                                {{ $slot->end_time->format('g:i A') }}</td>
+                                            <td>{{ $slot->start_time->format('g:i A') }}
                                             <td align="center"><b>{{ $slot->capacity }}</b></td>
                                         </tr>
                                     @endforeach
@@ -508,7 +505,7 @@
                         @endif
 
                         {{-- ===== ORDER ITEMS ===== --}}
-                        <p class="section-title">🛒 Order Items</p>
+                        <p class="section-title">Order Items</p>
                         <table class="item-table">
                             <thead>
                                 <tr>
@@ -525,22 +522,27 @@
                                             @if ($item->size_name)
                                                 <p class="item-desc">Size: {{ $item->size_name }}</p>
                                             @endif
-                                            @if ($item->addons->count() > 0)
-                                                <div class="addon-list">
-                                                    @foreach ($item->addons as $addon)
-                                                        <div>+ {{ $addon->quantity }}x {{ $addon->name }}
-                                                            —
-                                                            £{{ number_format($addon->price * $addon->quantity, 2) }}
-                                                        </div>
-                                                    @endforeach
-                                                </div>
-                                            @endif
                                         </td>
                                         <td align="center" style="font-size: 13px; color: #475569; font-weight: 600;">
                                             {{ $item->quantity }}</td>
                                         <td class="price">
                                             £{{ number_format($item->price * $item->quantity, 2) }}</td>
                                     </tr>
+                                    @if ($item->addons->count() > 0)
+                                        @foreach ($item->addons as $addon)
+                                            <tr>
+                                                <td
+                                                    style="padding: 2px 0 2px 10px; border-bottom: none; border-left: 2px solid #396430;">
+                                                    <span style="font-size: 11px; color: #64748b;">+
+                                                        {{ $addon->quantity }}x {{ $addon->name }}</span>
+                                                </td>
+                                                <td style="border-bottom: none;"></td>
+                                                <td align="right"
+                                                    style="font-size: 11px; font-weight: 600; color: #1e293b; padding: 2px 0; border-bottom: none; white-space: nowrap;">
+                                                    £{{ number_format($addon->price * $addon->quantity, 2) }}</td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>

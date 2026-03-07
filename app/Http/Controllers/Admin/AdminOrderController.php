@@ -84,11 +84,20 @@ class AdminOrderController extends Controller
         // Send email outside transaction
         try {
             if ($order->customer_email) {
-                Mail::to($order->customer_email)
-                    ->send(new \App\Mail\OrderStatusUpdated($order));
+                // // Send status update email
+                // Mail::to($order->customer_email)
+                //     ->send(new \App\Mail\OrderStatusUpdated($order));
+
+                // For COD orders: send the order confirmation email when admin confirms
+                // Online payment orders get their confirmation email via Stripe webhook
+                if ($newStatus === 'confirmed' && $order->payment_method === 'cod') {
+                    $order->load(['items.addons', 'time_slots']);
+                    Mail::to($order->customer_email)
+                        ->send(new \App\Mail\OrderPlaced($order));
+                }
             }
         } catch (\Exception $e) {
-            logger()->error('Failed to send order status updated email: ' . $e->getMessage());
+            logger()->error('Failed to send order email: ' . $e->getMessage());
         }
 
         return back()->with('success', 'Order status updated successfully');

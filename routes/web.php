@@ -108,6 +108,69 @@ Route::prefix('admin')->group(function () {
         Route::post('/order-dates/{orderDate}/update', [OrderDateController::class, 'update'])->name('admin.order-dates.update');
         Route::delete('/order-dates/{orderDate}/delete', [OrderDateController::class, 'destroy'])->name('admin.order-dates.destroy');
         Route::post('/order-dates/{orderDate}/toggle-status', [OrderDateController::class, 'toggleStatus'])->name('admin.order-dates.toggle-status');
+
+        // EMAIL PREVIEW
+        Route::get('/email-preview/{order?}', function ($orderId = null) {
+            $fakeMessage = new class {
+                public function embed($path)
+                {
+                    return asset(str_replace(public_path(), '', $path));
+                }
+            };
+
+            // If no order ID, show a list of all orders to pick from
+            if (!$orderId) {
+                $orders = \App\Models\Order::latest()->take(50)->get();
+                $html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Email Preview</title>';
+                $html .= '<style>
+                    body { font-family: "Segoe UI", sans-serif; background: #f0f4f0; margin: 0; padding: 28px; }
+                    .container { max-width: 800px; margin: 0 auto; }
+                    h1 { color: #396430; font-size: 24px; margin-bottom: 6px; }
+                    .subtitle { color: #64748b; font-size: 14px; margin-bottom: 24px; }
+                    .order-card { background: #fff; border-radius: 16px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(57,100,48,0.06); display: flex; justify-content: space-between; align-items: center; text-decoration: none; }
+                    .order-card:hover { box-shadow: 0 4px 16px rgba(57,100,48,0.12); }
+                    .order-info { display: flex; flex-direction: column; gap: 2px; }
+                    .order-num { font-weight: 700; color: #1e293b; font-size: 15px; }
+                    .order-meta { font-size: 12px; color: #64748b; }
+                    .order-badge { padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+                    .badge-c { background: #d1fae5; color: #047857; }
+                    .badge-d { background: #dbeafe; color: #1d4ed8; }
+                    .links { display: flex; gap: 8px; }
+                    .links a { padding: 8px 16px; border-radius: 50px; font-size: 12px; font-weight: 600; text-decoration: none; }
+                    .link-customer { background: #396430; color: #fff; }
+                    .link-admin { background: #f0f7ef; color: #396430; border: 1px solid #d4e5d0; }
+                </style></head><body><div class="container">';
+                $html .= '<h1>📧 Email Template Preview</h1>';
+                $html .= '<p class="subtitle">Click on an order to preview the email templates</p>';
+
+                foreach ($orders as $o) {
+                    $typeBadge = $o->order_type == 'collection'
+                        ? '<span class="order-badge badge-c">Collection</span>'
+                        : '<span class="order-badge badge-d">Delivery</span>';
+                    $html .= '<div class="order-card">';
+                    $html .= '<div class="order-info">';
+                    $html .= '<span class="order-num">#' . $o->order_number . ' — ' . $o->customer_name . '</span>';
+                    $html .= '<span class="order-meta">' . $o->created_at->format('D, j M Y h:i A') . ' · £' . number_format($o->grand_total, 2) . ' · ' . $typeBadge . '</span>';
+                    $html .= '</div>';
+                    $html .= '<div class="links">';
+                    $html .= '<a class="link-customer" href="/admin/email-preview/' . $o->id . '?type=customer" target="_blank">Customer Email</a>';
+                    $html .= '<a class="link-admin" href="/admin/email-preview/' . $o->id . '?type=admin" target="_blank">Admin Email</a>';
+                    $html .= '</div></div>';
+                }
+
+                $html .= '</div></body></html>';
+                return $html;
+            }
+
+            $order = \App\Models\Order::with(['items.addons', 'time_slots'])->findOrFail($orderId);
+            $type = request('type', 'customer');
+            $view = $type === 'admin' ? 'emails.admin-order-placed' : 'emails.order-placed';
+
+            return view($view, [
+                'order' => $order,
+                'message' => $fakeMessage,
+            ]);
+        })->name('admin.email-preview');
     });
 });
 
