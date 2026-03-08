@@ -599,9 +599,7 @@
                                     @endif
                                     @if ($order->time_slots && $order->time_slots->count() > 0)
                                         —
-                                        <b>{{ $order->time_slots->first()->start_time->format('g:i A') }}
-                                            –
-                                            {{ $order->time_slots->first()->end_time->format('g:i A') }}</b>
+                                        <b>{{ $order->time_slots->first()->start_time->format('g:i A') }}</b>
                                     @endif
                                 </p>
                                 <p style="font-size: 11px; color: #64748b;">(We aim to be on time; slight
@@ -613,6 +611,17 @@
                                     around here:</p>
                                 <p><a
                                         href="https://maps.app.goo.gl/xHPGrVsnZm4Hcg9dA?g_st=ic">https://maps.app.goo.gl/xHPGrVsnZm4Hcg9dA</a>
+                                </p>
+
+                                <p style="margin-top: 12px;"><b>Parking around the circled areas will be perfect.</b>
+                                </p>
+                                <p style="margin-top: 8px;">
+                                    <img src="{{ $message->embed(asset('admin/assets/images/collection-parking-guide.jpg')) }}"
+                                        alt="Parking Guide - Park along Brook St near the circled areas"
+                                        style="width: 100%; max-width: 500px; border-radius: 12px; border: 2px solid #d4e5d0; box-shadow: 0 2px 8px rgba(0,0,0,0.10);">
+                                </p>
+                                <p style="font-size: 11px; color: #64748b; margin-top: 6px;">
+                                    Please do not go too far ahead and do <b>NOT</b> park inside the nursery.
                                 </p>
                             </div>
 
@@ -639,6 +648,21 @@
                                 <p style="margin-top: 8px;">Thank you & see you soon! 😀</p>
                             </div>
 
+                            {{-- Late Arrivals notice --}}
+                            <div class="warning-box" style="background-color: #fef2f2; border-color: #fca5a5;">
+                                <p><b>⏰ LATE ARRIVALS?</b></p>
+                                <p style="margin-top: 6px;">If you will be more than 5 minutes late or experience any
+                                    major delays,
+                                    you must call or text <b><a href="tel:07451221187" style="color: #92400e;">07451
+                                            221187</a></b> to inform us.</p>
+                                <p style="margin-top: 8px;">Please arrive on time. Your order is prepared fresh for your
+                                    collection
+                                    time (there may be slight delays our side).</p>
+                                <p style="margin-top: 8px;">If you arrive late, your order may be delayed further as we
+                                    will have
+                                    other scheduled time slots to prepare.</p>
+                            </div>
+
                             {{-- ================================================================ --}}
                             {{-- ===== DELIVERY INSTRUCTIONS ===== --}}
                             {{-- ================================================================ --}}
@@ -660,9 +684,7 @@
                                     @endif
                                     @if ($order->time_slots && $order->time_slots->count() > 0)
                                         —
-                                        <b>{{ $order->time_slots->first()->start_time->format('g:i A') }}
-                                            –
-                                            {{ $order->time_slots->first()->end_time->format('g:i A') }}</b>
+                                        <b>{{ $order->time_slots->first()->start_time->format('g:i A') }}</b>
                                     @endif
                                 </p>
                                 <p style="font-size: 11px; color: #64748b;">(We aim to be on time; minor
