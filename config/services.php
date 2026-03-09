@@ -40,4 +40,8 @@ return [
         'webhook_secret' => env('STRIPE_WEBHOOK_SECRET'),
     ],
 
+    'postcoder' => [
+        'key' => env('POSTCODER_KEY'),
+    ],
+
 ];

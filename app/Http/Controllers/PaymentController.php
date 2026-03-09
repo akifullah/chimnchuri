@@ -207,10 +207,8 @@ class PaymentController extends Controller
             ]);
         }
 
-        // For COD orders, only send admin notification now.
-        // Customer email will be sent when admin confirms the order.
         try {
-            \Illuminate\Support\Facades\Mail::to('info@chimnchurri.com')->send(new \App\Mail\AdminOrderPlaced($order));
+            \Illuminate\Support\Facades\Mail::to('order@chimnchurri.com')->send(new \App\Mail\AdminOrderPlaced($order));
         } catch (\Exception $e) {
             logger()->error('Failed to send admin order notification email: ' . $e->getMessage());
         }

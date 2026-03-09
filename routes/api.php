@@ -120,6 +120,7 @@ Route::prefix("v1")->group(function () {
         // DELIVERY ZONES
         Route::get("/delivery-zones", [\App\Http\Controllers\Admin\DeliveryZoneController::class, "getDeliveryZones"]);
         Route::post("/check-delivery", [\App\Http\Controllers\Admin\DeliveryZoneController::class, "checkDelivery"]);
+        Route::post("/search-postcodes", [\App\Http\Controllers\Admin\DeliveryZoneController::class, "searchPostcodes"]);
     });
 });
 
