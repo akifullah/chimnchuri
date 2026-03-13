@@ -190,7 +190,7 @@
                             request, you can safely ignore this email.</p>
 
                         <div class="button-container">
-                            <a href="{{ config('app.frontend_url') . '/reset-password?token=' . $token . '?email=' . $email }}"
+                            <a href="{{ config('app.frontend_url') . '/reset-password?token=' . $token . '&email=' . $email }}"
                                 class="button">
                                 Reset Password
                             </a>
